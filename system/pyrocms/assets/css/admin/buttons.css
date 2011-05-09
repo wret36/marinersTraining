@@ -1,0 +1,81 @@
+button:hover {
+    cursor: pointer;
+}
+button:-moz-focus-inner {
+    border: 0 none;
+}
+.buttons a {
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    background: -moz-linear-gradient(0% 100% 90deg, #E8E8E8, #FFFFFF) repeat scroll 0 0 transparent;
+    border: 1px solid #B9B9B9;
+    color: #666666;
+    display: inline-block;
+    font-size: 130%;
+    line-height: 1.25em;
+    margin: 0 0 0 5px;
+    min-width: 120px;
+    padding: 7px 12px 8px;
+    text-align: center;
+    text-decoration: none;
+}
+button {
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    background: -moz-linear-gradient(0% 100% 90deg, #E8E8E8, #FFFFFF) repeat scroll 0 0 transparent;
+    border: 1px solid #B9B9B9;
+    color: #666666;
+    font-family: 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+    font-size: 130%;
+    line-height: 1em;
+    margin: 0 0 0 5px;
+    min-width: 120px;
+    padding: 7px 12px 8px;
+    text-align: center;
+}
+
+button:hover, .buttons a:hover {
+    background: -moz-linear-gradient(0% 100% 90deg, #FFFFFF, #E8E8E8) repeat scroll 0 0 transparent;
+}
+button:active {
+    background: -moz-linear-gradient(0% 100% 90deg, #EEEEEE, #E8E8E8) repeat scroll 0 0 transparent;
+}
+button.positive {
+    background: -moz-linear-gradient(0% 100% 90deg, #63A62F, #7FBF4D) repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+}
+button.positive:hover {
+    background: -moz-linear-gradient(0% 100% 90deg, #5A962C, #72AC45) repeat scroll 0 0 transparent;
+}
+button.positive:active {
+    background: -moz-linear-gradient(0% 100% 90deg, #7FBF4D, #63A62F) repeat scroll 0 0 transparent;
+}
+.buttons a.cancel {
+	color: #666;
+}
+.buttons a.cancel:hover {
+	color: #FF6900;
+}
+.buttons-small { margin-bottom: 0 !important; }
+.buttons-small a, .buttons a.small {
+    font-size: 110%;
+    margin: 0 0 0 5px;
+    line-height: 1.4em;
+    min-width: 60px;
+    padding: 4px 8px 5px;
+}
+.buttons-small button, button.small {
+    font-size: 110%;
+    margin: 0 0 0 5px;
+    min-width: 60px;
+    padding: 4px 8px 5px;
+}
+.buttons a img, button img {
+    margin: -2px 2px 0 0;
+    vertical-align: middle;
+}

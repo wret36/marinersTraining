@@ -1,0 +1,382 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * Admin controller for the navigation module. Handles actions such as editing links or creating new ones.
+ *
+ * @package 		PyroCMS
+ * @subpackage 		Navigation module
+ * @category		Modules
+ * @author			Phil Sturgeon - PyroCMS Development Team
+ *
+ */
+class Admin extends Admin_Controller
+{
+	/**
+	 * The array containing the rules for the navigation items
+	 * @var array
+	 * @access private
+	 */
+	private $validation_rules 	= array(
+		array(
+			'field' => 'title',
+			'label'	=> 'lang:nav_title_label',
+			'rules'	=> 'trim|required|max_length[40]'
+		),
+		array(
+			'field' => 'link_type',
+			'label'	=> 'lang:nav_type_label',
+			'rules'	=> 'trim|required|alpha'
+		),
+		array(
+			'field' => 'url',
+			'label'	=> 'lang:nav_url_label',
+			'rules'	=> 'trim'
+		),
+		array(
+			'field' => 'uri',
+			'label'	=> 'lang:nav_uri_label',
+			'rules'	=> 'trim'
+		),
+		array(
+			'field' => 'module_name',
+			'label'	=> 'lang:nav_module_label',
+			'rules'	=> 'trim|alpha_dash'
+		),
+		array(
+			'field' => 'page_id',
+			'label'	=> 'lang:nav_page_label',
+			'rules'	=> 'trim|numeric'
+		),
+		array(
+			'field' => 'navigation_group_id',
+			'label'	=> 'lang:nav_group_label',
+			'rules'	=> 'trim|numeric|required'
+		),
+		array(
+			'field' => 'target',
+			'label'	=> 'lang:nav_target_label',
+			'rules'	=> 'trim|max_length[10]'
+		),
+		array(
+			'field' => 'class',
+			'label'	=> 'lang:nav_class_label',
+			'rules'	=> 'trim'
+		)
+	);
+
+	/**
+	 * Constructor method
+	 * @access public
+	 * @return void
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+
+		// Load the required classes
+		$this->load->library('form_validation');
+		$this->load->model('navigation_m');
+		$this->load->model('pages/pages_m');
+		$this->lang->load('navigation');
+
+	    $this->template->set_partial('shortcuts', 'admin/partials/shortcuts');
+	    $this->template->append_metadata( js('navigation.js', 'navigation') );
+
+		// Get Navigation Groups
+		$this->data->groups 		= $this->navigation_m->get_groups();
+		$this->data->groups_select 	= array_for_select($this->data->groups, 'id', 'title');
+		$all_modules				= $this->module_m->get_all(array('is_frontend'=>true));
+
+		//only allow modules that user has permissions for
+		foreach($all_modules as $module)
+		{
+			if(in_array($module['slug'], $this->permissions) OR $this->user->group == 'admin') $modules[] = $module;
+		}
+		
+		$this->data->modules_select = array_for_select($modules, 'slug', 'name');
+
+		// Get Pages and create pages tree
+		$tree = array();
+
+		if ($pages = $this->pages_m->get_all())
+		{
+			foreach($pages AS $page)
+			{
+				$tree[$page->parent_id][] = $page;
+			}
+		}
+
+		unset($pages);
+		$this->data->pages_select = $tree;
+
+		// Set the validation rules for the navigation items
+		$this->form_validation->set_rules($this->validation_rules);
+	}
+
+	/**
+	 * List all navigation elements
+	 * @access public
+	 * @return void
+	 */
+	public function index()
+	{
+		// Go through all the groups
+		foreach($this->data->groups as $group)
+		{
+			//... and get navigation links for each one
+			$this->data->navigation[$group->abbrev] = $this->navigation_m->get_links(array('group'=>$group->id, 'order'=>'position, title'));
+			
+			// build a list of eligible parents for the dropdown
+			$parents[0] = '';
+			foreach($this->data->navigation[$group->abbrev] as $item)
+			{
+				$parents[$item->id]	= $item->title;
+			}
+			
+			//add the list to each link
+			foreach($this->data->navigation[$group->abbrev] as $key => $item)
+			{
+				$this->data->navigation[$group->abbrev][$key]->{'parents'}	= $parents;
+				
+				//remove the this link from its own available parents list
+				unset($this->data->navigation[$group->abbrev][$key]->{'parents'}[$item->id]);
+			}
+		}
+
+		// Create the layout
+		$this->template
+			->title($this->module_details['name'])
+			->build('admin/index', $this->data);
+	}
+
+	/**
+	 * Create a new navigation item
+	 * @access public
+	 * @return void
+	 */
+	public function create()
+	{
+		// Run if valid
+		if ($this->form_validation->run())
+		{
+			// Got post?
+			if ($this->navigation_m->insert_link($_POST) > 0)
+			{
+				$this->cache->delete_all('navigation_m');
+				$this->session->set_flashdata('success', lang('nav_link_add_success'));
+			}
+			else
+			{
+				$this->session->set_flashdata('error', lang('nav_link_add_error'));
+			}
+
+			// Redirect
+			redirect('admin/navigation');
+		}
+
+		// Loop through each validation rule
+		foreach($this->validation_rules as $rule)
+		{
+			$navigation_link->{$rule['field']} = set_value($rule['field']);
+		}
+
+		// Render the view
+		$this->data->navigation_link =& $navigation_link;
+
+		// Get Pages and create pages tree
+		$this->data->tree_select = $this->_build_tree_select(array('current_parent' => $navigation_link->page_id));
+
+		$this->template
+			->title($this->module_details['name'],lang('nav_link_create_title'))
+			->build('admin/links/form', $this->data);
+	}
+
+	/**
+	 * Edit a navigation item
+	 * @access public
+	 * @param int $id The ID of the navigation item
+	 * @return void
+	 */
+	public function edit($id = 0)
+	{
+		// Got ID?
+		if (empty($id))
+		{
+			redirect('admin/navigation');
+		}
+
+		// Get the navigation item based on the ID
+		$navigation_link = $this->navigation_m->get_link($id);
+
+		if (!$navigation_link)
+		{
+			$this->session->set_flashdata('error', $this->lang->line('nav_link_not_exist_error'));
+			redirect('admin/navigation/create');
+		}
+
+		// Valid data?
+		if ($this->form_validation->run())
+		{
+			// Update the link and flush the cache
+			$this->navigation_m->update_link($id, $_POST);
+			$this->cache->delete_all('navigation_m');
+
+			// Notify and redirect
+			$this->session->set_flashdata('success', lang('nav_link_edit_success'));
+			redirect('admin/navigation');
+		}
+
+		// Loop through each rule
+		foreach($this->validation_rules as $rule)
+		{
+			if($this->input->post($rule['field']) !== FALSE)
+			{
+				$navigation_link->{$rule['field']} = $this->input->post($rule['field']);
+			}
+		}
+
+		// Get Pages and create pages tree
+		$this->data->tree_select = $this->_build_tree_select(array('current_parent' => $navigation_link->page_id));
+
+		// Render the view
+		$this->template
+			->title($this->module_details['name'], sprintf(lang('nav_link_edit_title'), $navigation_link->title))
+			->set('navigation_link', $navigation_link)
+			->build('admin/links/form', $this->data);
+	}
+
+	/**
+	 * Delete an existing navigation link
+	 * @access public
+	 * @param int $id The ID of the navigation link
+	 * @return void
+	 */
+	public function delete($id = 0)
+	{
+		$id_array = (!empty($id)) ? array($id) : $this->input->post('action_to');
+
+		// Loop through each item to delete
+		if(!empty($id_array))
+		{
+			foreach ($id_array as $id)
+			{
+				$this->navigation_m->delete_link($id);
+			}
+		}
+		// Flush the cache and redirect
+		$this->cache->delete_all('navigation_m');
+		$this->session->set_flashdata('success', $this->lang->line('nav_link_delete_success'));
+		redirect('admin/navigation');
+	}
+
+	/**
+	 * Update the position of the navigation link
+	 * @access public
+	 * @return void
+	 */
+	function ajax_update_positions()
+	{
+		// Create an array containing the IDs
+		$ids = explode(',', $this->input->post('order'));
+
+		// Counter variable
+		$i = 1;
+
+		foreach($ids as $id)
+		{
+			// Update the position
+			$this->navigation_m->update_link_position($id, $i);
+			++$i;
+		}
+
+		// Flush the cache
+		$this->cache->delete_all('navigation_m');
+	}
+	
+	/**
+	 * Assign this link a parent
+	 * @access public
+	 * @return void
+	 */
+	function ajax_update_parent()
+	{
+		$status = $this->navigation_m->update_link_parent($this->input->post('id'), $this->input->post('parent'));
+
+		// Flush the cache
+		$this->cache->delete_all('navigation_m');
+		
+		return $status;
+	}
+
+	/**
+	 * Tree select function
+	 *
+	 * Creates a tree to form select
+	 *
+	 * @param	array
+	 * @return	array
+	 */
+	function _build_tree_select($params)
+	{
+		$params = array_merge(array(
+			'tree'			=> array(),
+			'parent_id'		=> 0,
+			'current_parent'=> 0,
+			'current_id'	=> 0,
+			'level'			=> 0
+		), $params);
+
+		extract($params);
+
+		if ( ! $tree)
+		{
+			if ($pages = $this->db->select('id, parent_id, title')->get('pages')->result())
+			{
+				foreach($pages as $page)
+				{
+					$tree[$page->parent_id][] = $page;
+				}
+			}
+		}
+
+		if ( ! isset($tree[$parent_id]))
+		{
+			return;
+		}
+
+		$html = '';
+
+		foreach ($tree[$parent_id] as $item)
+		{
+			if ($current_id == $item->id)
+			{
+				continue;
+			}
+
+			$html .= '<option value="' . $item->id . '"';
+			$html .= $current_parent == $item->id ? ' selected="selected">': '>';
+
+			if ($level > 0) 
+			{
+				for ($i = 0; $i < ($level*2); $i++)
+				{
+					$html .= '&nbsp;';
+				}
+
+				$html .= '-&nbsp;';
+			}
+
+			$html .= $item->title . '</option>';
+
+			$html .= $this->_build_tree_select(array(
+				'tree'			=> $tree,
+				'parent_id'		=> (int) $item->id,
+				'current_parent'=> $current_parent,
+				'current_id'	=> $current_id,
+				'level'			=> $level + 1
+			));
+		}
+
+		return $html;
+	}
+}
+?>

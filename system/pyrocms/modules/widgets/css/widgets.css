@@ -1,0 +1,231 @@
+.widget-instructions {
+	color: #666;
+	font-size: 15px;
+	font-style: italic;
+	margin-top: 6px;
+}
+
+/*--------------------------------------------------------------------
+// AVAILABLE WIDGETS LIST
+//-------------------------------------------------------------------*/
+#available-widgets {
+	margin: 0;
+}
+#available-widgets li {
+	list-style-type: none;
+	position: relative;
+	border-top: 1px dotted #ccc;
+	padding: 10px;
+	margin: 0;
+}
+#available-widgets h3,
+.ui-draggable-dragging h3 {
+	font-size: 14px;
+	width: 150px;
+	padding-right: 25px;
+	height: 100%;
+	text-align: right;
+	float: left;
+}
+#available-widgets p,
+.ui-draggable-dragging p {
+	margin-bottom: 0;
+	line-height: 1.5;
+}
+#available-widgets li:hover {
+	background-color: #e6e6e6;
+	cursor: move;
+}
+#available-widgets a {
+	color: #999;
+}
+#available-widgets a:hover {
+	color: #ff6400;
+}
+
+/* Drag State for Available Widgets */
+.widget-drag {
+	opacity: 0.3;
+}
+#available-widgets .ui-draggable-dragging {
+	background: #e6e6e6;
+	border: 1px solid #999;
+	cursor: move;
+	z-index: 500;
+}
+
+/*
+#available-widgets .widget-box {
+	cursor: move;
+	box-shadow: #DDD 2px 5px 5px;
+	-webkit-box-shadow: #DDD 2px 5px 5px;
+	-moz-box-shadow: #DDD 2px 5px 5px;
+	float: left;
+	height: 150px;
+	margin: 10px;
+	overflow: hidden;
+	position: relative;
+	width: 170px;
+	z-index: 1;
+}
+
+#available-widgets .widget-box header {
+	cursor: move;
+}
+#available-widgets .widget-box h3, .widget-instance h3 {
+	font-size: 14px;
+	line-height: 2.0;
+	text-align: center;
+}
+
+#available-widgets .widget-box .author {
+	color: #999;
+	position: absolute;
+	bottom: 0;
+}
+#available-widgets .widget-box .author a {
+	color: #999;
+}
+#available-widgets .widget-box .author a:hover {
+	color: #ff6400;
+}
+*/
+
+/* Widget Instance */
+
+.widget-instance {
+	position: relative;
+	background-color: #dadadb;
+	border: 1px solid #c2c2c2;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	padding: 5px 10px;
+	margin-bottom: 5px;
+	min-height: 35px;
+}
+.widget-instance h4 {
+	font-size: 13px; 
+	margin: 0;
+	display: inline;
+	width: 45%;
+	text-overflow: ellipsis;
+}
+.widget-type {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	color: #fcfcfc;
+	text-shadow: 0px -1px 0px #999;
+	max-width: 45%;
+	text-overflow: ellipsis;
+}
+.widget-actions {
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+	margin: 0;
+	padding: 0;
+}
+.widget-code {
+	position: absolute;
+	bottom: 5px;
+	left: 10px;
+	margin: 0;
+	padding: 0;
+	color: #999;
+}
+
+.widget-instance ol {
+	margin-bottom: 0;
+}
+.widget-instance textarea.uniform {
+	width: 97% !important;
+}
+
+.widget-instance form.crud label{
+	text-align: left;
+}
+
+.widget-instance form.crud span.required-icon {
+	display: none;
+}
+
+#add-area-box {
+	border-bottom: 1px solid #e6e6e6;
+	padding: 0 10px 10px 10px;
+	margin-bottom: 20px;
+	-webkit-box-shadow: #DDD 0px 5px 5px;
+	-moz-box-shadow: #DDD 0px 5px 5px;
+	box-shadow: #DDD 0px 5px 5px;
+}
+#add-area-box h3 { 
+	margin-bottom: 0; 
+}
+
+#add-instance-box {
+	padding: 0;
+	margin-bottom: 20px;
+	background-color: #fcfcfc;
+}
+
+#edit-instance-box {
+	padding: 0;
+	margin-bottom: 20px;
+	background-color: #fcfcfc;
+	float:none;
+}
+
+.widget-area .tag, .widget-area .button {
+	position: absolute;
+	left: 50%;
+	color: #666666;
+	padding: 0 15px 0 15px;
+	margin-top: 7px;
+}
+
+.widget-list textarea {
+	width: 98%;
+}
+
+/*Header has to float or jquery
+ can't insert edit form */
+.widget-area-header {
+	float: left;
+}
+
+#widget-wrapper {
+	width: 32%;
+	min-width: 350px;
+	margin-left: 1%;
+	display: inline-block;
+	float: left;
+}
+.widget-list ol {
+	padding: 5px 15px 0 15px;
+	list-style-type: none;
+}
+.widget-list ol li {
+	margin-left: 0;
+}
+li.empty-drop-item {
+	border: 2px dashed #666;
+	height: 24px;
+	display: none;
+}
+.drop-hover li {
+	display: block;
+}
+
+p.tag {
+	font-family: monospace; 
+	text-align: center;
+	color: #999;
+}
+.accordion .edit-area {
+	right: 90px;
+}
