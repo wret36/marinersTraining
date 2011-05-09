@@ -12,7 +12,6 @@ class Admin extends Admin_Controller
 	 *
 	 * @access public
 	 * @return void
-	 * eric
 	 */
 	public function __construct()
 	{
