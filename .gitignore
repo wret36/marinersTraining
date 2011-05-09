@@ -9,7 +9,6 @@ system/pyrocms/cache/dwoo/compiled/*.php
 system/pyrocms/cache/image_files/*
 system/pyrocms/cache/simplepie/*.spc
 system/pyrocms/cache/twitter/*
-system/pyrocms/config/database.php
 system/pyrocms/logs/log-*.php
 nbproject/
 uploads/*
