@@ -1,0 +1,129 @@
+/*@import 'reset.css';
+@import 'typo.css';
+@import 'global.css';*/
+
+html, body {
+    font-family: arial,tahoma,sans-serif;
+    margin: 0;
+    padding: 0;
+	font-size:14px;
+}
+
+#pageWrapper{
+	width: 100%;
+}
+
+#mainPage{
+	margin: 0;
+	padding: 0;
+	width: 1024px;
+}
+
+#left{
+	float: left;
+	height: 200px;
+	width: 350px;
+}
+
+#search{
+	text-align: right;
+}
+
+#head-nav{
+	float: left;
+	width: 100%;
+}
+
+#head-nav li{
+	float: left;
+	list-style: none outside none;
+	text-decoration: none;
+	width: 70px;
+}
+
+#logo{
+	
+}
+
+#big-logo{
+	
+}
+
+#right{
+	float: left;
+	min-height: 200px;
+	width: 650px;
+}
+
+#header{
+	float: left;
+	width: 100%;
+}
+
+#contentWrapper{
+	float: left;
+	width: 100%;
+	margin-top: 10px;
+	min-height: 200px;
+}
+
+#content-left{
+	float: left;
+	width: 49%;
+}
+
+#content-right{
+	float: left;
+	width: 49%;
+}
+
+#footerBox{
+	float: left;
+	min-height: 100px;
+	width: 100%;
+	margin: 10px 0;
+}
+
+#box1{
+	
+}
+
+#box2{
+	background-color: blue;
+	float: left;
+	height: 170px;
+	margin: 0 10px;
+	width: 130px;
+}
+
+#box3{
+	
+}
+
+#box4{
+	
+}
+
+#box5{
+	
+}
+
+#footerWrapper{
+	float: left;
+	width: 100%;	
+}
+.rounded-corneer{
+	
+}
+
+.square{
+	background-color: green;
+	float: left;
+	height: 170px;
+	margin: 0 10px;
+	width: 175px;
+}
+
+.box-content{
+	
+}
