@@ -21,12 +21,28 @@ class Mariner_Certificates_m extends MY_Model
 	
 	}
 	
+	/** 
+	 * TODO: temporary only, deprecate this if getBy is available
+	 */
+	public function getById($id)
+	{
+		$query = $this->db->get_where(
+			'mariner_certificates',
+			array(
+				'id' => $id
+			),
+			1
+		)->result();
+		
+		return $query[0];
+	}
+	
 	/**
 	 * @return Mariner_Certificates row
 	 */
 	public function create($params)
 	{
-	
+		return $this->db->insert('mariner_certificates', $params);
 	}
 	
 	/**
