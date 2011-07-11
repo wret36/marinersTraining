@@ -2,24 +2,33 @@
 
 class Mariner_Certificates_m extends MY_Model 
 {
-	public function __construct() 
-	{
-		parent::__construct();
-	}
-	
-	public function test_query()
-	{
-		$this->db->select('id, certificate_id, first_name, last_name, middle_name, suffix, date_certified, created_at, updated_at');
-		$this->db->from('mariner_certificates');
+    public function __construct() 
+    {
+        parent::__construct();
+    }
+    
+    public function test_query()
+    {
+        $this->db->select('id, certificate_id, first_name, last_name, middle_name, suffix, date_certified, created_at, updated_at');
+        $this->db->from('mariner_certificates');
 
 		$query = $this->db->get();
 		return $query->result();
 	}
 	
-	public function getBy($params)
-	{
-	
-	}
+    public function getBy($params)
+    {
+        $this->db->select('id, certificate_id, first_name, last_name, middle_name, suffix, date_certified, created_at, updated_at');
+        $this->db->from('mariner_certificates');
+        $this->db->where('id IS NOT NULL');
+        
+        if (array_key_exists('certificate_id', $params)) {
+            $this->db->where('certificate_id', $params['certificate_id']);
+        }
+        
+        $query = $this->db->get();
+        return $query->result();
+    }
 	
 	/** 
 	 * TODO: temporary only, deprecate this if getBy is available
@@ -78,5 +87,6 @@ class Mariner_Certificates_m extends MY_Model
 	{
 	
 	}
+
 
 }
