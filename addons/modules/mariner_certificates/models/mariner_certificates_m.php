@@ -34,7 +34,7 @@ class Mariner_Certificates_m extends MY_Model
 			1
 		)->result();
 		
-		return $query[0];
+		return (isset($query[0]) ? $query[0] : null) ;
 	}
 	
 	/**
@@ -51,7 +51,24 @@ class Mariner_Certificates_m extends MY_Model
 	 */
 	public function edit($params)
 	{
-	
+		$result = null;
+		if (isset($params['id']) || isset($params->id))
+		{
+			if (is_object($params)) {
+				$id = $params->id;
+				unset($params->id);
+			} else {
+				$id = $params['id'];
+				unset($params['id']);
+			}
+			
+			$this->db->where('id', $id);
+			$result = $this->db->update('mariner_certificates', $params); 
+		} else {
+			throw new Exception('No id for mariner record provided');
+		}
+		
+		return $result;
 	}
 	
 	/**

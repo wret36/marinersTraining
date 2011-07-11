@@ -2,41 +2,31 @@
 // ------------------------------------------------------------------------
 
 /**
- * Casebook Helpers
+ * Mariner Certificates Helpers
  *
- * @package		Casebook
- * @subpackage	Helpers
- * @category	Helpers
- * @author		Casebook Dev Team
+ * @author		Richard Malibiran <richard.malibiran@98labs.com>
  */
 
 // ------------------------------------------------------------------------
 
 
 /**
- * Easy Access to SoapClient
+ * Easy Detect property existence
  *
  * @return Object
  */
-/*
-if ( ! function_exists('sc'))
+if ( ! function_exists('get_propery_from_object'))
 {
-	function sssc($value = NULL, $soap_options = NULL)  
+	function get_propery_from_object($object, $property)  
 	{
-		if ($value == NULL) {return FALSE;}
-	
-	    if ($soap_options == NULL) {
-	    	$soap_options = array('trace'=>1, 'exceptions'=>1);
-	    } 
-	    
-	    if ($client = new SoapClient(WEBSERVICE_URL.$value.'.svc?wsdl', $soap_options)) {
-			return $client;
-		} else {
-			return FALSE;
+		$returnValue = null;
+		if (is_object($object)) {
+			$returnValue = (isset($object->$property) ? $object->$property : null);
 		}
-	} 
+		
+		return $returnValue;
+	}
 }
-*/
 
 
 /**
@@ -58,7 +48,3 @@ if ( ! function_exists('is_selected'))
 }
 */
 // ------------------------------------------------------------------------
-
-
-/* End of file casebook_helper.php */
-/* Location: ./cb_base/helpers/casebook_helper.php */
