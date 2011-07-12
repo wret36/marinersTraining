@@ -26,23 +26,16 @@ class Mariner_Certificates extends Public_Controller
      */
     public function index()
     {
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('certificate_id', 'certificate_id', 'required');
+        
         $this->template
             ->title('Mariner Certificates')
             ->set('mariner_certificates')
-            ->build('mariner_certificates/index');
-            
-        $this->load->helper(array('form'));
-
-        $this->load->library('form_validation');
-
-        if ($this->form_validation->run() == FALSE)
-        {
-            $this->load->view('certificateVerificationForm');
-        }
-        else
-        {
-            $this->load->view('formsuccess');
-        }
+            ->build('mariner_certificates/mariner_certificates/forms/certificate_verification');
+        
     }
     
     
@@ -51,11 +44,13 @@ class Mariner_Certificates extends Public_Controller
         $certificateId = $_POST['certificate_id'];
         $params = array('certificate_id' => $certificateId); 
         $certificates = $this->marinerCert->getBy($params);
-        $certificate = $certificates[0];
-        
-        $data = array(
-            'certificate' => $certificate
-        );
+        $data = array('certificate'=>array());
+        if (count($certificates) > 0) {
+            $certificate = $certificates[0];
+            $data = array(
+                'certificate' => $certificate
+            );
+        }
         
         $this->template
             ->title('Mariner Certificates')
