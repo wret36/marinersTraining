@@ -26,11 +26,6 @@ class Mariner_Certificates extends Public_Controller
      */
     public function index()
     {
-        $this->load->helper(array('form', 'url'));
-        $this->load->library('form_validation');
-
-        $this->form_validation->set_rules('certificate_id', 'certificate_id', 'required');
-        
         $this->template
             ->title('Mariner Certificates')
             ->set('mariner_certificates')
