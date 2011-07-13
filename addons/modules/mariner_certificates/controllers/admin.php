@@ -16,35 +16,12 @@ class Admin extends Admin_Controller
     
     public function index()
     {
-
-//        $certRecord = $this->marinerCert->test_query();
-//        $encodedRows = $this->_encodeToFlexigridRows($certRecord);
-//        $itemCount = count($certRecord);
-//        $page = 1;
-//        
-//        $responseArr = array(
-//            'page' => $page,
-//            'total' => $itemCount,
-//            'rows' => $encodedRows
-//            
-//        );
-//        
-//        $data = array(
-//            'test_data' => $responseArr 
-//        );
-//
-//        $this->load->view('admin/index');
-        
-        // Load the view
-        $this->template
-            ->title('Mariner Certificates')
-            ->set('mariner_certificates')
-            ->build('admin/index', null);
+		redirect(base_url().'admin/mariner_certificates/browse');
     }
     
     public function data()
     {
-
+    	
         $certRecord = $this->marinerCert->browse();
         $encodedRows = $this->_encodeToFlexigridRows($certRecord);
         $itemCount = count($certRecord);
@@ -55,26 +32,16 @@ class Admin extends Admin_Controller
             'page' => $page,
             'total' => $itemCount,
             'rows' => $encodedRows
-            
         );
         
-        $data = array(
-            'values' => $responseArr 
-        );
-
+        $data = array( 'values' => $responseArr );
         $this->load->view('admin/data', $data);
         
-        // Load the view
-//      $this->template
-//          ->title('Mariner Certificates')
-//          ->set('mariner_certificates')
-//          ->build('admin/index', $data);
     }
     
     private function _encodeToFlexigridRows($certRecord)
     {
-//        id     certificate_id     first_name     last_name     middle_name     suffix     date_certified     created_at     updated_at
-        
+    	
         $formattedArray = array();
         foreach ($certRecord as $row) {
             $tempArr = array(
@@ -213,11 +180,6 @@ class Admin extends Admin_Controller
     public function delete($id)
     {
     
-    }
-    
-    public function post2()
-    {
-        $this->load->view('admin/browse_data');
     }
     
     private function _getSpecificMarinerRecord($id)
