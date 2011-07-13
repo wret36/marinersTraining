@@ -1,6 +1,6 @@
 <div id="add_edit_user">
 
-<?php $hidden = array('id' => (get_propery_from_object($certRecord, 'id')));?>
+<?php $hidden = array('id' => ((isset($certRecord) == true ? get_propery_from_object($certRecord, 'id') : '')));?>
 
 <?php echo form_open('admin/mariner_certificates/'.$operation, null, $hidden);?>
 <div>
@@ -9,7 +9,7 @@
 		$data = array(
               'name'        => 'certificate_id',
               'id'          => 'certificate_id',
-              'value'       =>  get_propery_from_object($certRecord, 'certificate_id'),
+              'value'       =>  (isset($certRecord) == true ? get_propery_from_object($certRecord, 'certificate_id') : '') ,
               'class'  		=> 'textfield',
             );
 	?>
@@ -21,7 +21,7 @@
 		$data = array(
               'name'        => 'first_name',
               'id'          => 'first_name',
-              'value'       => get_propery_from_object($certRecord, 'first_name'),
+              'value'       => (isset($certRecord) == true ? get_propery_from_object($certRecord, 'first_name') : ''),
               'class'  		=> 'textfield',
             );
 		?>
@@ -33,7 +33,7 @@
 		$data = array(
               'name'        => 'middle_name',
               'id'          => 'middle_name',
-              'value'       => get_propery_from_object($certRecord, 'middle_name'),
+              'value'       => (isset($certRecord) == true ? get_propery_from_object($certRecord, 'middle_name') : ''),
               'class'  		=> 'textfield',
             );
 		?>
@@ -45,7 +45,7 @@
 		$data = array(
               'name'        => 'last_name',
               'id'          => 'last_name',
-              'value'       => get_propery_from_object($certRecord, 'last_name'),
+              'value'       => (isset($certRecord) == true ? get_propery_from_object($certRecord, 'last_name') : ''),
               'class'  		=> 'textfield',
             );
 		?>
@@ -57,7 +57,7 @@
 		$data = array(
               'name'        => 'suffix',
               'id'          => 'suffix',
-              'value'       => get_propery_from_object($certRecord, 'suffix'),
+              'value'       => (isset($certRecord) == true ? get_propery_from_object($certRecord, 'suffix') : ''),
               'class'  		=> 'textfield',
             );
 		?>
@@ -69,7 +69,7 @@
 		$data = array(
               'name'        => 'date_certified',
               'id'          => 'date_certified',
-              'value'       => get_propery_from_object($certRecord, 'date_certified'),
+              'value'       => (isset($certRecord) == true ? get_propery_from_object($certRecord, 'date_certified') : ''),
               'class'  		=> 'textfield',
             );
 		?>

@@ -51,7 +51,8 @@ class Mariner_Certificates_m extends MY_Model
 	 */
 	public function create($params)
 	{
-		return $this->db->insert('mariner_certificates', $params);
+	    $values = array_filter($params);
+		return $this->db->insert('mariner_certificates', $values);
 	}
 	
 	/**
@@ -87,6 +88,22 @@ class Mariner_Certificates_m extends MY_Model
 	{
 	
 	}
+	
+    public function browse($params = null)
+    {
+
+        $this->db->select('id, certificate_id, first_name, last_name, middle_name, suffix, date_certified, created_at, updated_at');
+        $this->db->from('mariner_certificates');
+        $this->db->where('id IS NOT NULL');
+        $this->db->limit(10);
+        
+//        if (array_key_exists('certificate_id', $params)) {
+//            $this->db->where('certificate_id', $params['certificate_id']);
+//        }
+        
+        $query = $this->db->get();
+        return $query->result();
+    }
 
 
 }
