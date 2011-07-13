@@ -24,31 +24,90 @@ html, body {
 
 #search {
     background: url("../images/search-bg.png") no-repeat scroll -1px 1px transparent;
+    float: right;
     height: 199px;
-    position: absolute;
-    right: 246px;
     width: 328px;
 }
 
 #logo {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid blue;
+    background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
     float: left;
-    height: 148px;
-    width: 327px;
+    height: 179px;
+    width: 453px;
 }
 
 #main-menu {
     float: left;
     height: 50px;
-    margin-left: 20px;
-    margin-top: 119px;
-    width: 400px;
+    margin-left: -85px;
+    margin-top: 99px;
+}
+
+#main-menu .left,
+#main-menu .right {
+    float: left;
+    height: 51px;
+    width: 19px;
+}
+
+#main-menu .left {
+    background: url("../images/menu-left.png") no-repeat scroll 0 0 transparent;
+}
+
+#main-menu .mid {
+    background: url("../images/menu-mid.png") repeat-x scroll 0 0 transparent;
+    float: left;
+    padding-bottom: 20px;
+    padding-top: 18px;
+}
+
+#main-menu .mid ul {
+    margin: 0;
+    padding: 0;
+}
+
+#main-menu .right {
+	background: url("../images/menu-right.png") no-repeat;
 }
 
 #main-menu li {
-	float: left;
-	list-style: none;
+    float: left;
+    list-style: none outside none;
+    padding: 5px;
+}
+
+#main-menu li a {
+    color: #333333;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#main-menu li a:hover {
+    color: #FFFFFF;
+    display: block;
+    margin-top: -8px;
+}
+
+#main-menu li a .list-left,
+#main-menu li a .list-mid,
+#main-menu li a .list-right {
+    background: none repeat scroll 0 0 transparent;
+    padding: 0;
+}
+
+#main-menu li a:hover .list-left {
+    background: url("../images/active-menu-left.png") no-repeat scroll 0 0 transparent;
+    width: 7px;
+}
+
+#main-menu li a:hover .list-mid {
+    background: url("../images/active-menu-mid.png") repeat-x scroll 0 0 transparent;
+    padding: 17px 5px 12px;
+}
+
+#main-menu li a:hover .list-right {
+	background: url("../images/active-menu-right.png") no-repeat;
 }
 
 #model-container {

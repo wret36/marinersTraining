@@ -11,9 +11,24 @@
 			<div id="header" class="container">
 				<div id="search">
 				</div>
-				<div id="logo">LOGO</div>			
+				<div id="logo"></div>			
 				<div id="main-menu">
-					{pyro:navigation:links group="header"}					
+					<div class="left"></div>
+					<div class="mid">
+						<ul>
+						{pyro:navigation:links group="header"}
+							<li class="menu-item">
+								<a href="{url}" class="{class}">
+									<span class="list-left left"></span>
+									<span class="list-mid mid">{title}</span>
+									<span class="list-right right"></span>
+								</a>
+							</li>
+						{/pyro:navigation:links}
+						</ul>
+					</div>
+					<div class="right"></div>
+				
 				</div>
 			</div>
 			<div id="content" class="container">
