@@ -1,4 +1,4 @@
-<div>
+<div id="verify_form_container" style="float: left; padding-bottom: 40px;">
 <?php
 $attributes = array('id' => 'certificate-verification');
 echo form_open('/mariner_certificates/verify', $attributes);?>
@@ -27,4 +27,7 @@ echo form_open('/mariner_certificates/verify', $attributes);?>
 <div><?php echo form_submit($data); ?></div>
 </div>
 <?php echo form_close(); ?>
+</div>
+<div id="optional_verify_container" style="float: left;">
+
 </div>
