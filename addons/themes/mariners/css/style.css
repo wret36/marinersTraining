@@ -9,121 +9,71 @@ html, body {
 	font-size:14px;
 }
 
-#pageWrapper{
-	width: 100%;
+#main-container {
+    background: url("../images/background.png") no-repeat scroll 0 0 transparent;
+    min-height: 708px;
 }
 
-#mainPage{
-	margin: 0;
-	padding: 0;
+.container {
 	width: 1024px;
 }
 
-#left{
+#header {
+	min-height: 150px;
+}
+
+#search {
+    background: url("../images/search-bg.png") no-repeat scroll -1px 1px transparent;
+    height: 199px;
+    position: absolute;
+    right: 246px;
+    width: 328px;
+}
+
+#logo {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid blue;
+    float: left;
+    height: 148px;
+    width: 327px;
+}
+
+#main-menu {
+    float: left;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 119px;
+    width: 400px;
+}
+
+#main-menu li {
 	float: left;
-	height: 200px;
-	width: 350px;
+	list-style: none;
 }
 
-#search{
-	text-align: right;
+#model-container {
+    background: url("../images/dolphin.png") no-repeat scroll 0 22px transparent;
+    float: left;
+    min-height: 404px;
+    position: absolute;
+    width: 373px;
 }
 
-#head-nav{
-	float: left;
-	width: 100%;
+#main {
+    background: url("../images/green-back.jpg") repeat-x scroll 0 0 transparent;
+    margin-left: 90px;
+    min-height: 394px;
+    padding-left: 274px;
+    width: 659px;
 }
 
-#head-nav li{
-	float: left;
-	list-style: none outside none;
-	text-decoration: none;
-	width: 70px;
+#main .modules {
+	width: 311px;
+	padding: 10px;
+	margin-left: 10px;
 }
 
-#logo{
-	
-}
 
-#big-logo{
-	
-}
-
-#right{
-	float: left;
-	min-height: 200px;
-	width: 650px;
-}
-
-#header{
-	float: left;
-	width: 100%;
-}
-
-#contentWrapper{
-	float: left;
-	width: 100%;
-	margin-top: 10px;
-	min-height: 200px;
-}
-
-#content-left{
-	float: left;
-	width: 49%;
-}
-
-#content-right{
-	float: left;
-	width: 49%;
-}
-
-#footerBox{
-	float: left;
-	min-height: 100px;
-	width: 100%;
-	margin: 10px 0;
-}
-
-#box1{
-	
-}
-
-#box2{
-	background-color: blue;
-	float: left;
-	height: 170px;
-	margin: 0 10px;
-	width: 130px;
-}
-
-#box3{
-	
-}
-
-#box4{
-	
-}
-
-#box5{
-	
-}
-
-#footerWrapper{
-	float: left;
-	width: 100%;	
-}
-.rounded-corneer{
-	
-}
-
-.square{
-	background-color: green;
-	float: left;
-	height: 170px;
-	margin: 0 10px;
-	width: 175px;
-}
-
-.box-content{
-	
+#right-container {
+	width: 682px;
 }
