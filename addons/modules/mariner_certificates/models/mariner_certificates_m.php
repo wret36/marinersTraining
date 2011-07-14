@@ -2,6 +2,8 @@
 
 class Mariner_Certificates_m extends MY_Model 
 {
+	const ITEMS_PER_PAGE = 10;
+	
     public function __construct() 
     {
         parent::__construct();
@@ -89,21 +91,46 @@ class Mariner_Certificates_m extends MY_Model
 	
 	}
 	
-    public function browse($params = null)
+    public function browse($params = null, $page)
     {
-
+	
+    	$offset = ($page - 1) * self::ITEMS_PER_PAGE;
+    	
         $this->db->select('id, certificate_id, first_name, last_name, middle_name, suffix, date_certified, created_at, updated_at');
         $this->db->from('mariner_certificates');
         $this->db->where('id IS NOT NULL');
-        $this->db->limit(10);
-        
-//        if (array_key_exists('certificate_id', $params)) {
-//            $this->db->where('certificate_id', $params['certificate_id']);
-//        }
+        $this->db->limit(self::ITEMS_PER_PAGE, $offset);
         
         $query = $this->db->get();
         return $query->result();
     }
-
+    
+    public function getTotalRecordCount()
+    {
+    	$rowCount = 0;
+    	
+    	$this->db->select("COUNT(id) AS total");
+    	$this->db->from($this->_table);
+    	$query = $this->db->get();
+    	
+    	$rows = $query->result();
+    	
+    	if (isset($rows[0]) && is_object($rows[0])) {
+    		if (isset($rows[0]->total)) {
+    			$rowCount = (int) $rows[0]->total;
+    		}
+    	}
+    	
+    	return $rowCount;
+    	
+//     	return $first->result;
+//     	$limit = $first->total_num;
+    	
+//     	$this->db->select("fields")
+//     	$this->db->from("table");
+//     	$this->db->where($conditions);
+//     	$this->db->limit($limit);
+//     	$second = $this->db->get();
+    }
 
 }

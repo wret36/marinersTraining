@@ -21,13 +21,13 @@ class Admin extends Admin_Controller
     
     public function data()
     {
+    	$page = $this->input->post('page');
     	
-        $certRecord = $this->marinerCert->browse();
+        $certRecord = $this->marinerCert->browse(null, $page);
         $encodedRows = $this->_encodeToFlexigridRows($certRecord);
-        $itemCount = count($certRecord);
+        $itemCount = $this->marinerCert->getTotalRecordCount();
         
-        $page = 1;
-        
+//         $page = 1;
         $responseArr = array(
             'page' => $page,
             'total' => $itemCount,
@@ -36,7 +36,6 @@ class Admin extends Admin_Controller
         
         $data = array( 'values' => $responseArr );
         $this->load->view('admin/data', $data);
-        
     }
     
     private function _encodeToFlexigridRows($certRecord)
