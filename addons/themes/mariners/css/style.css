@@ -132,7 +132,67 @@ html, body {
 	margin-left: 10px;
 }
 
+#links-container {
+    clear: both;
+    margin-top: -54px;
+    min-height: 150px;
+    position: relative;
+    z-index: 200;
+}
+
+.links {
+    background: url("../images/links.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 203px;
+    width: 203px;
+}
+
+
+#links-container .links:hover {
+    height: 231px;
+    margin-top: -50px;
+}
+
+.right-links {
+	background-image: url("../images/right-links.png");
+}
+
+.certificate:hover {
+	background-image: url("../images/cert.png");
+}
+
+.gallery:hover {
+	background-image: url("../images/gallery.png");
+}
+
+.announcement:hover {
+	background-image: url("../images/announcement.png");
+}
+
+.course-offered:hover {
+	background-image: url("../images/course-offered.png");
+}
+
+.find-us:hover {
+	background-image: url("../images/find-us.png");
+}
 
 #right-container {
 	width: 682px;
+}
+
+.links .content {
+    color: #333333;
+    font-size: 18px;
+    font-weight: bold;
+    height: 25px;
+    margin-left: 19px;
+    margin-top: 86px;
+    text-align: center;
+    width: 145px;
+}
+
+.links:hover .content {
+    height: 55px;
+    margin: 87px auto 0 20px;
 }
