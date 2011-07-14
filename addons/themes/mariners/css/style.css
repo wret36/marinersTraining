@@ -37,10 +37,10 @@ html, body {
 }
 
 #main-menu {
-    float: left;
     height: 50px;
-    margin-left: -85px;
-    margin-top: 99px;
+    left: 258px;
+    position: absolute;
+    top: 99px;
 }
 
 #main-menu .left,
@@ -205,3 +205,25 @@ html, body {
     height: 55px;
     margin: 87px auto 0 20px;
 }
+
+#footer {
+    clear: both;
+    padding-left: 25px;
+    padding-top: 15px;
+}
+
+#footer .text {
+	color: #72CB2E;
+}
+
+#footer ul li {
+    float: left;
+    list-style: none outside none;
+    margin-right: 10px;
+}
+
+#footer ul li a {
+    color: #72CB2E;
+    text-decoration: none;
+}
+
