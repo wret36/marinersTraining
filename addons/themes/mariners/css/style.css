@@ -26,14 +26,18 @@ html, body {
     background: url("../images/search-bg.png") no-repeat scroll -1px 1px transparent;
     float: right;
     height: 199px;
+    position: relative;
     width: 328px;
+    z-index: 20;
 }
 
 #logo {
     background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
     float: left;
     height: 179px;
+    position: absolute;
     width: 453px;
+    z-index: 20;
 }
 
 #main-menu {
@@ -112,28 +116,57 @@ html, body {
 
 #model-container {
     background: url("../images/dolphin.png") no-repeat scroll 0 22px transparent;
-    float: left;
     min-height: 404px;
     position: absolute;
     width: 373px;
+    z-index: 200;
 }
 
 #main {
-    background: url("../images/green-back.jpg") repeat-x scroll 0 0 transparent;
+    color: #273F04;
+    line-height: 18px;
     margin-left: 90px;
-    min-height: 394px;
+    position: relative;
+    top: -49px;
+}
+
+#main-content-holder {
+    background: url("../images/green-back.jpg") repeat-x scroll 0 0 #7CCD41;
+	float: left;
+    min-height: 300px;
+    padding-bottom: 27px;
     padding-left: 274px;
+    padding-top: 31px;
+    width: 100%;
 }
 
 #main .modules {
-	width: 311px;
-	padding: 10px;
-	margin-left: 10px;
+    float: left;
+    margin-left: 10px;
+    padding: 10px;
+    width: 300px;
+}
+
+#content-holder {
+    background: url("../images/separator.png") repeat-y scroll 331px 0 transparent;
+    float: left;
+    min-height: 290px;
+    width: 660px;
+}
+
+#main .modules h2,
+.content-heading {
+    color: #F4FF81;
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    text-align: left;
 }
 
 #links-container {
-    clear: both;
-    margin-top: -54px;
+    float: left;
+    margin-top: -50px;
     min-height: 150px;
     position: relative;
     z-index: 200;
