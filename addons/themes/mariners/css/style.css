@@ -131,8 +131,8 @@ html, body {
 }
 
 #main-content-holder {
-    background: url("../images/green-back.jpg") repeat-x scroll 0 0 #7CCD41;
-	float: left;
+    background: url("../images/green-back.png") repeat-x scroll 0 0 #A8EA44;
+    float: left;
     min-height: 300px;
     padding-bottom: 27px;
     padding-left: 274px;
@@ -154,14 +154,19 @@ html, body {
     width: 660px;
 }
 
+.latest_news h3 {
+	display: none;
+}
+
 #main .modules h2,
-.content-heading {
+.content-heading a {
     color: #F4FF81;
     display: block;
     font-size: 16px;
     font-weight: normal;
     margin: 0;
     text-align: left;
+    text-decoration: none;
 }
 
 #links-container {

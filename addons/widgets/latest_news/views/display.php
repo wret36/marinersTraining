@@ -2,9 +2,9 @@
 	<?php foreach($blog_widget as $post_widget): ?>
 		<?php $link = 'blog/'.date('Y/m', $post_widget->created_on) .'/'.$post_widget->slug; ?>
 		<div class="news-container">
-			<h3 class="content-heading">
+			<span class="content-heading">
 				<?php echo anchor($link, $post_widget->title); ?>
-			</h3>
+			</span>
 			<p class="news-content">
 				<?php 
 				$displayText = $post_widget->body;
