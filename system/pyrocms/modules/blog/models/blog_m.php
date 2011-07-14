@@ -58,7 +58,14 @@ class Blog_m extends MY_Model {
 		{
 			$this->db->where('status', 'live');
 		}
-
+		
+		// EDIT : By Richard Malibiran
+		// Original By: Erik Berman
+		if (isset($params['created_on_order'])) {
+			$this->db->order_by('created_on', $params['created_on_order']);
+		}
+		// END EDIT
+		
 		// By default, dont show future posts
 		if (!isset($params['show_future']) || (isset($params['show_future']) && $params['show_future'] == FALSE))
 		{
