@@ -161,7 +161,17 @@ html, body {
 	background-image: url("../images/cert.png");
 }
 
-.gallery:hover {
+#links-container .gallery {
+    background-image: url("../images/gallery-default.png");
+    width: 184px;
+}
+
+#links-container .gallery .content {
+    margin-left: 17px;
+    width: 132px;
+}
+
+#links-container .gallery:hover {
 	background-image: url("../images/gallery.png");
 }
 
