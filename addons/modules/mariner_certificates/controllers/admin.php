@@ -8,6 +8,8 @@ class Admin extends Admin_Controller
         
         // load common model for the controller
         $this->load->model('Mariner_Certificates_m', 'marinerCert');
+        
+        $this->load->model('Mariner_Certificates_Row_Validator_m', 'marinerCertificateRowValidator');
         $this->load->helper('mariner_certificates');
         
         // load partial for admin quick links
@@ -17,6 +19,7 @@ class Admin extends Admin_Controller
     public function index()
     {
 		redirect(base_url().'admin/mariner_certificates/browse');
+
     }
     
     public function data()
@@ -179,6 +182,106 @@ class Admin extends Admin_Controller
     public function delete($id)
     {
     
+    }
+    
+    public function upload()
+    {
+        $this->load->library('Upload_Filter');
+        $this->upload_filter->instantiate('Excel_Filter');
+        $this->load->library('Spreadsheet/SpreadsheetReaderFactory','test');
+        
+        $data = array();
+        
+        if ($this->input->post()) {
+            $filename = $this->excel_filter->filterFileToUpload('userfile');
+            if (!$this->excel_filter->getIsValidFile()) {
+                $data['hasErrors'] = 1;
+                $data['errorMessages'] = $this->excel_filter->getErrorMessages();
+            } else {
+                $tmpFileName = $_FILES['userfile']['tmp_name'];
+                // move physical file in project
+                move_uploaded_file($tmpFileName, './uploads/'.$filename);
+                $fullFilename = './uploads/'.$filename;
+                $reader = SpreadsheetReaderFactory::reader($fullFilename);
+                $this->_validateUploadedFile($fullFilename);
+                if ($this->marinerCertificateRowValidator->hasErrors()) {
+                    $data['hasErrors'] = 1;
+                    $data['errorMessages'] = $this->marinerCertificateRowValidator->getErrorMessages();
+                } else {
+                    try {
+                        $rowsAffected = $this->_saveUploadedFileInDB($fullFilename);
+                        $this->session->set_flashdata('success', $rowsAffected . 'row(s) are successfully inserted in database.');
+                        redirect('admin/mariner_certificates/upload_result/', null);
+                    }catch (Exception $e) {
+                        $this->session->set_flashdata('error', 'Failed to upload data.' . $e->getMessage());
+                        redirect('admin/mariner_certificates/upload_result/', null);
+                    }
+                }
+            }
+            
+        }
+        
+        // Load the view
+        $this->template
+            ->title('Mariner Certificates')
+            ->set('mariner_certificates')
+            ->build('admin/forms/upload', $data);
+    }
+    
+    
+    
+    public function upload_result()
+    {
+        $this->template
+            ->title('Mariner Certificates')
+            ->set('mariner_certificates')
+            ->build('admin/forms/upload', null);
+    }
+    
+    public function post2()
+    {
+        $this->load->view('admin/browse_data');
+    }
+    
+    private function _validateUploadedFile($filename = null)
+    {
+        $reader = SpreadsheetReaderFactory::reader($filename);
+        $result = $reader->read( $filename );
+                    
+        $rowNum = 0;
+        
+        foreach($result as $sheet){
+            foreach($sheet as $rowValues){
+                $rowNum++;
+                if(!empty($rowValues) 
+                        && $rowNum > Mariner_Certificates_Row_Validator_m::ROW_HEADER ) {
+                    $this->marinerCertificateRowValidator->setRowValues($rowValues);
+                    $this->marinerCertificateRowValidator->setRowNum($rowNum);
+                    $this->marinerCertificateRowValidator->validate();      
+                }
+            }
+        }       
+        
+    }
+    
+    private function _saveUploadedFileInDB($filename = null)
+    {
+        $reader = SpreadsheetReaderFactory::reader($filename);
+        $result = $reader->read($filename);
+                    
+        $rowNum = 0;
+        $affectedRowCount = count($result[0]) - 1;
+        foreach($result as $sheet){
+            foreach($sheet as $rowValues){
+                $rowNum++;
+                if(!empty($rowValues) && $rowNum > Mariner_Certificates_Row_Validator_m::ROW_HEADER ) {
+                    $this->marinerCert->saveFromValidatedFile($rowValues);
+                }
+            }
+        }
+        
+        return $affectedRowCount;
+        
     }
     
     private function _getSpecificMarinerRecord($id)

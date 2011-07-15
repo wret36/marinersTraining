@@ -3,7 +3,14 @@
 class Mariner_Certificates_m extends MY_Model 
 {
 	const ITEMS_PER_PAGE = 10;
-	
+    const CERTIFICATE_ID    = 'certificate_id';
+    const FIRST_NAME        = 'first_name';
+    const LAST_NAME         = 'last_name';
+    const MIDDLE_NAME       = 'middle_name';
+    const SUFFIX            = 'suffix';
+    const DATE_CERTIFIED    = 'date_certified';
+    const CREATED_AT        = 'created_at';
+    
     public function __construct() 
     {
         parent::__construct();
@@ -122,15 +129,46 @@ class Mariner_Certificates_m extends MY_Model
     	}
     	
     	return $rowCount;
-    	
-//     	return $first->result;
-//     	$limit = $first->total_num;
-    	
-//     	$this->db->select("fields")
-//     	$this->db->from("table");
-//     	$this->db->where($conditions);
-//     	$this->db->limit($limit);
-//     	$second = $this->db->get();
+    }
+    
+    public function isUniqueCertificateId($certificateId)
+    {
+        $isUnique = false;
+        $result = $this->getBy(array('certificate_id' => $certificateId));
+        if (count($result) == 0) {
+            $isUnique = true;
+        }
+        
+        return $isUnique;
+    }
+    
+    public function saveFromValidatedFile($rowValues)
+    {
+        
+        $this->_renameKeys($rowValues);
+        $rowValues[self::CREATED_AT] = date('Y-m-d G:i:s');
+        $this->create($rowValues);
+        
+    }
+    
+    private function _getReplacementKeys()
+    {
+        return array(self::CERTIFICATE_ID, self::FIRST_NAME, self::LAST_NAME, self::MIDDLE_NAME, self::SUFFIX, self::DATE_CERTIFIED);
+        
+    }
+
+    private function _renameKeys(&$array)
+    {
+        $keys   = array_keys($array);
+        $values = array_values($array);
+        
+        $replacement_keys = $this->_getReplacementKeys();
+        
+        for ($i=0; $i < count($replacement_keys); $i++) {
+            $keys[$i] = $replacement_keys[$i];
+        }
+
+        $array = array_combine($keys, $values);
     }
 
 }

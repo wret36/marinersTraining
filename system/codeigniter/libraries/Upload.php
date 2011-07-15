@@ -191,7 +191,6 @@ class CI_Upload {
 			return FALSE;
 		}
 
-
 		// Set the uploaded data as class variables
 		$this->file_temp = $_FILES[$field]['tmp_name'];
 		$this->file_size = $_FILES[$field]['size'];
