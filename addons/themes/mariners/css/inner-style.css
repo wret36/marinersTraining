@@ -1,0 +1,31 @@
+#inner-page-latest {
+	background: url("../images/green-back.png") repeat-x scroll 0 0 #A8EA44;
+    border-bottom: 10px solid;
+    height: 100px;
+}
+
+#inner-content-holder {
+	background: #FFFFFF;
+    float: left;
+    min-height: 300px;
+    padding-bottom: 27px;
+    /*padding-left: 274px;*/
+    padding-top: 31px;
+    width: 100%;
+}
+
+.inner-left {
+    padding-left: 30px;
+    width: 244px;
+}
+
+#inner-content-holder .links {
+	background: url("../images/cert.png") no-repeat scroll 30px 0 transparent;
+    float: left;
+    height: 231px;
+    width: 203px;
+}
+
+#inner-content-holder .links:hover {
+
+}

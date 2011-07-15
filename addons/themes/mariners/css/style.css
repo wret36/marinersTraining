@@ -161,6 +161,10 @@ html, body {
     width: 660px;
 }
 
+#content-holder.inner-content-holder {
+	background: none;
+}
+
 .latest_news h3 {
 	display: none;
 }
