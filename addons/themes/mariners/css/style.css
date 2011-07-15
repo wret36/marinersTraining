@@ -7,11 +7,13 @@ html, body {
     margin: 0;
     padding: 0;
 	font-size:14px;
+	min-width: 1024px;
 }
 
 #main-container {
     background: url("../images/background.png") repeat-x scroll 0 0 transparent;
     min-height: 708px;
+    width: 100%;
 }
 
 .container {
