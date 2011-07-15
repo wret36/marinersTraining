@@ -190,6 +190,15 @@ html, body {
     width: 203px;
 }
 
+.links a {
+    display: block;
+    height: 185px;
+    margin-left: 9px;
+    margin-top: 10px;
+    text-decoration: none;
+    width: 170px;
+}
+
 
 #links-container .links:hover {
     height: 231px;
@@ -245,19 +254,42 @@ html, body {
     width: 145px;
 }
 
+.links a .content {
+	display: block;
+	height: 110px;
+	margin: 0;
+	padding-top: 75px;
+	width: 170px;
+}
+
+.links:hover a {
+	margin-top: -50px;
+}
+
+.links:hover a .content{
+	margin-left: 0;
+}
+
 .links:hover .content {
     height: 55px;
     margin: 87px auto 0 20px;
 }
 
 #footer {
+    background-color: #FFFFFF;
     clear: both;
+    padding-bottom: 15px;
     padding-left: 25px;
     padding-top: 15px;
+    width: 100%;
 }
 
 #footer .text {
 	color: #72CB2E;
+}
+
+#footer ul {
+	float: left;
 }
 
 #footer ul li {
@@ -269,5 +301,9 @@ html, body {
 #footer ul li a {
     color: #72CB2E;
     text-decoration: none;
+}
+
+#footer ul li a:hover {
+	color: #F4FF81;
 }
 
