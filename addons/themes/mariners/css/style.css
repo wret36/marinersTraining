@@ -213,11 +213,17 @@ html, body {
 }
 
 .right-links {
-	background-image: url("../images/right-links.png");
+    background-image: url("../images/right-links.png");
+    width: 203px;
+}
+
+.certificate {
+	width: 203px;
 }
 
 .certificate:hover {
 	background-image: url("../images/cert.png");
+	width: 203px;
 }
 
 #links-container .gallery {
