@@ -1,3 +1,78 @@
+<?php if($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/home') : ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+    <head profile="http://gmpg.org/xfn/11">
+        <title>{pyro:template:title}</title>
+        {pyro:theme:partial name="metadata"}
+        {pyro:theme:css file="style.css"}       
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="header" class="container">
+                <div id="search">
+                </div>
+                <div id="logo"></div>           
+                <div id="main-menu">
+                    <div class="left"></div>
+                    <div class="mid">
+                        <ul>
+                        {pyro:navigation:links group="header"}
+                            <li class="menu-item">
+                                <a href="{url}" class="{class}">
+                                    <span class="list-left left"></span>
+                                    <span class="list-mid mid">{title}</span>
+                                    <span class="list-right right"></span>
+                                </a>
+                            </li>
+                        {/pyro:navigation:links}
+                        </ul>
+                    </div>
+                    <div class="right"></div>
+                
+                </div>
+            </div>
+            <div id="content">
+                <div id="model-container">
+                
+                </div>
+                <div id="main">
+                    <div id="main-content-holder">
+                        <div id="message-container">
+                            {pyro:session:messages success="success-box" notice="notice-box" error="error-box"}
+                        </div>
+                        <div id="content-holder">
+                            <div class="left-content modules">
+                                {pyro:template:body}
+                            </div>
+                            <div class="right-content modules">
+                                {pyro:widgets:area slug="latest_news"}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="links-container">
+                    {pyro:theme:partial name="menu-modules"}
+                </div>
+            </div>
+            <div id="footer" class="container">
+                <div class="text">
+                    COPYRIGHT &copy; 2008 <span>MARINERS' POLYTECHNIC TRAINING CENTER</span>
+                </div>
+                <ul>
+                {pyro:navigation:links group="header"}
+                    <li class="menu-item">
+                        <a href="{url}" class="{class}">
+                            {title}
+                        </a>
+                    </li>
+                {/pyro:navigation:links}
+                </ul>
+            </div>              
+        </div>
+    </body>
+</html>
+<?php else : ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
 
@@ -35,7 +110,7 @@
             <div id="content">
                 <div id="main" class="inner-page">
 	                <div id="inner-page-latest">
-	                {pyro:widgets:area slug="latest_news"}
+	                
 	                </div>
                     <div id="inner-content-holder">
 		                <div class="links inner-left">
@@ -74,3 +149,4 @@
         </div>
     </body>
 </html>
+<?php endif; ?>
