@@ -10,7 +10,7 @@ html, body {
 }
 
 #main-container {
-    background: url("../images/background.png") no-repeat scroll 0 0 transparent;
+    background: url("../images/background.png") repeat-x scroll 0 0 transparent;
     min-height: 708px;
 }
 
@@ -20,6 +20,11 @@ html, body {
 
 #header {
 	min-height: 150px;
+}
+
+#content {
+	float: left;
+	width: 100%
 }
 
 #search {
@@ -126,6 +131,7 @@ html, body {
     color: #273F04;
     line-height: 18px;
     margin-left: 90px;
+    overflow: hidden;
     position: relative;
     top: -49px;
 }
