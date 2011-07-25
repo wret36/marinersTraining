@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 body {
-    background: url("../images/content-bg.png") repeat-x scroll -2px 69px transparent;
+    background: url("../img/content-bg.png") repeat-x scroll -2px 69px transparent;
     margin: 0;
     padding: 0;	
 }
@@ -18,7 +18,7 @@ body {
 }
 
 #left {
-    background: url("../images/left-model.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/left-model.png") no-repeat scroll 0 0 transparent;
     height: 402px;
     width: 404px;
 }
@@ -28,7 +28,7 @@ body {
 }
 
 #content {
-    background: url("../images/content-bg.png") repeat-x scroll 0 3px transparent;
+    background: url("../img/content-bg.png") repeat-x scroll 0 3px transparent;
     clear: both;
     min-height: 300px;
     padding: 30px 10px 10px;
@@ -64,11 +64,11 @@ body {
 }
 
 #menu .left {
-    background: url("../images/menu-left.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/menu-left.png") no-repeat scroll 0 0 transparent;
 }
 
 #menu .mid {
-    background: url("../images/menu-mid.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/menu-mid.png") repeat-x scroll 0 0 transparent;
     float: left;
     padding-bottom: 20px;
     padding-top: 18px;
@@ -80,7 +80,7 @@ body {
 }
 
 #menu .right {
-    background: url("../images/menu-right.png") no-repeat;
+    background: url("../img/menu-right.png") no-repeat;
 }
 
 #menu li {
@@ -110,16 +110,55 @@ body {
 }
 
 #menu li a:hover .list-left {
-    background: url("../images/active-menu-left.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/active-menu-left.png") no-repeat scroll 0 0 transparent;
     width: 7px;
 }
 
 #menu li a:hover .list-mid {
-    background: url("../images/active-menu-mid.png") repeat-x scroll 0 0 transparent;
+    background: url("../img/active-menu-mid.png") repeat-x scroll 0 0 transparent;
     padding: 17px 5px 12px;
 }
 
 #menu li a:hover .list-right {
-    background: url("../images/active-menu-right.png") no-repeat;
+    background: url("../img/active-menu-right.png") no-repeat;
 }
 /*  END MENU  */
+#links-container {
+	float: left;
+	width: 1024px;
+}
+
+#links-container .links {
+    float: left;
+    height: 209px;
+    width: 210px;
+}
+
+#links-container .links .content {
+    color: #FFFFFF;
+    font-family: arial;
+}
+
+#links-container .certificate {
+	background: url("../img/modules/certificate.png") no-repeat;
+}
+
+#links-container .certificate a {
+    display: block;
+    text-indent: -20000px;
+}
+
+#links-container .gallery {
+    background: url("../img/modules/gallery.png") no-repeat scroll 0 0 transparent;
+    width: 198px;
+}
+
+#links-container .gallery .content {
+    font-size: 24px;
+    margin-left: 56px;
+    margin-top: 65px;	
+}
+
+#links-container .announcement {
+    background: url("../img/modules/announcement.png") no-repeat scroll 0 0 transparent;
+}

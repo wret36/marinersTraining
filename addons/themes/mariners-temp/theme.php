@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Theme_Mariners extends Theme {
+class Theme_Mariners_Temp extends Theme {
 
     public $name = 'Mariners Theme';
     public $author = 'Christian Danos';

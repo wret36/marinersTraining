@@ -3,13 +3,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>New Template</title>
-	<link href="css/style.css" rel="stylesheet">
+	{pyro:theme:css file="style.css"}		
 </head>
 <body>
     <div id="main">
         <div id="left">
             <div id="logo">
-                <img alt="logo" src="images/logo.png">
+            	{pyro:theme:image file="logo.png" alt="Fun!"}
             </div>
         </div>
         <div id="right">
@@ -40,6 +40,9 @@
                 </div>
             </div>
         </div>
+		<div id="links-container">
+			{pyro:theme:partial name="menu-modules"}
+		</div>
     </div>
 </body>
 </html>
