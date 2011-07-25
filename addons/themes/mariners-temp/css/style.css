@@ -1,0 +1,125 @@
+@CHARSET "UTF-8";
+body {
+    background: url("../images/content-bg.png") repeat-x scroll -2px 69px transparent;
+    margin: 0;
+    padding: 0;	
+}
+
+#main {
+	min-width: 1024px;	
+}
+
+/*  GLOBAL  */
+
+#left,
+#right {
+	float: left;
+	min-height: 20px;	
+}
+
+#left {
+    background: url("../images/left-model.png") no-repeat scroll 0 0 transparent;
+    height: 402px;
+    width: 404px;
+}
+
+#right {
+	width: 620px;	
+}
+
+#content {
+    background: url("../images/content-bg.png") repeat-x scroll 0 3px transparent;
+    clear: both;
+    min-height: 300px;
+    padding: 30px 10px 10px;
+    width: 600px;
+}
+
+#content .left,
+#content .right {
+	float: left;
+	width: 295px;
+	background: pink;
+	min-height: 200px;
+}
+
+#content .right {
+    margin-left: 10px;	
+}
+/*  END GLOBAL */
+/*  MENU  */
+#menu {
+    float: left;
+    height: 66px;
+    top: 99px;
+    width: 630px;
+    z-index: 30;
+}
+
+#menu .left,
+#menu .right {
+    float: left;
+    height: 51px;
+    width: 19px;
+}
+
+#menu .left {
+    background: url("../images/menu-left.png") no-repeat scroll 0 0 transparent;
+}
+
+#menu .mid {
+    background: url("../images/menu-mid.png") repeat-x scroll 0 0 transparent;
+    float: left;
+    padding-bottom: 20px;
+    padding-top: 18px;
+}
+
+#menu .mid ul {
+    margin: 0;
+    padding: 0;
+}
+
+#menu .right {
+    background: url("../images/menu-right.png") no-repeat;
+}
+
+#menu li {
+    float: left;
+    list-style: none outside none;
+    padding: 5px;
+}
+
+#menu li a {
+    color: #333333;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    color: #FFFFFF;
+    display: block;
+    margin-top: -8px;
+}
+
+#menu li a .list-left,
+#menu li a .list-mid,
+#menu li a .list-right {
+    background: none repeat scroll 0 0 transparent;
+    padding: 0;
+}
+
+#menu li a:hover .list-left {
+    background: url("../images/active-menu-left.png") no-repeat scroll 0 0 transparent;
+    width: 7px;
+}
+
+#menu li a:hover .list-mid {
+    background: url("../images/active-menu-mid.png") repeat-x scroll 0 0 transparent;
+    padding: 17px 5px 12px;
+}
+
+#menu li a:hover .list-right {
+    background: url("../images/active-menu-right.png") no-repeat;
+}
+/*  END MENU  */
