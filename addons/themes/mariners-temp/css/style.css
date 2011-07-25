@@ -159,6 +159,10 @@ body {
     margin-top: 65px;	
 }
 
-#links-container .announcement {
+#links-container .green {
+	background: url("../img/modules/default-green.png") no-repeat scroll 0 0 transparent;
+}
+
+#links-container .announcement:hover {
     background: url("../img/modules/announcement.png") no-repeat scroll 0 0 transparent;
 }
