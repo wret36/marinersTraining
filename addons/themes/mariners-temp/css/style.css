@@ -1,12 +1,13 @@
 @CHARSET "UTF-8";
 body {
-    background: url("../img/content-bg.png") repeat-x scroll -2px 69px transparent;
+    background: url("../img/content-bg.png") repeat-x scroll -2px 104px transparent;
     margin: 0;
     padding: 0;	
 }
 
 #main {
-	min-width: 1024px;	
+    min-width: 1024px;
+    padding-top: 35px;	
 }
 
 /*  GLOBAL  */
@@ -51,7 +52,8 @@ body {
 #menu {
     float: left;
     height: 66px;
-    top: 99px;
+    position: relative;
+    top: 21px;
     width: 630px;
     z-index: 30;
 }
@@ -99,14 +101,14 @@ body {
 #menu li a:hover {
     color: #FFFFFF;
     display: block;
-    margin-top: -8px;
+    margin-top: -10px;
 }
 
 #menu li a .list-left,
 #menu li a .list-mid,
 #menu li a .list-right {
     background: none repeat scroll 0 0 transparent;
-    padding: 0;
+    padding-top: 0;
 }
 
 #menu li a:hover .list-left {
@@ -116,7 +118,7 @@ body {
 
 #menu li a:hover .list-mid {
     background: url("../img/active-menu-mid.png") repeat-x scroll 0 0 transparent;
-    padding: 17px 5px 12px;
+    padding: 10px 6px 18px;
 }
 
 #menu li a:hover .list-right {
@@ -124,14 +126,19 @@ body {
 }
 /*  END MENU  */
 #links-container {
-	float: left;
-	width: 1024px;
+    float: left;
+    margin-top: -45px;
+    width: 1045px;
 }
 
 #links-container .links {
     float: left;
     height: 209px;
     width: 210px;
+}
+
+#links-container .links:hover {
+    margin-top: -10px;
 }
 
 #links-container .links .content {
@@ -153,16 +160,38 @@ body {
     width: 198px;
 }
 
-#links-container .gallery .content {
+#links-container .links .content {
     font-size: 24px;
-    margin-left: 56px;
-    margin-top: 65px;	
+    margin-left: 16px;
+    margin-top: 65px;
+    text-align: center;
+    width: 148px;
+}
+
+#links-container .links a.content {
+    display: block;
+    text-decoration: none;
+    width: 171px;	
+}
+
+#links-container .course-offered .content {
+	width: 126px;
 }
 
 #links-container .green {
-	background: url("../img/modules/default-green.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/modules/default-green.png") no-repeat scroll 0 0 transparent;
 }
 
 #links-container .announcement:hover {
     background: url("../img/modules/announcement.png") no-repeat scroll 0 0 transparent;
+    width: 214px;
+}
+
+#links-container .course-offered:hover {
+    background: url("../img/modules/course-offered.png") no-repeat scroll 0 0 transparent;
+}
+
+#links-container .find-us:hover {
+    background: url("../img/modules/find-us.png") no-repeat scroll 0 0 transparent;
+    width: 215px;
 }

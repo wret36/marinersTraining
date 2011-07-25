@@ -14,22 +14,21 @@
         </div>
         <div id="right">
             <div id="menu">
-                <ul>
-                     <li class="menu-item">
-	                     <a class=" first" href="http://mariners.training.local.dev/home">
-	                         <span class="list-left left"></span>
-	                         <span class="list-mid mid">Home</span>
-	                         <span class="list-right right"></span>
-	                     </a>
-	                 </li>
-                     <li class="menu-item">
-	                     <a class=" last" href="http://mariners.training.local.dev/contact">
-	                         <span class="list-left left"></span>
-	                         <span class="list-mid mid">Contact</span>
-	                         <span class="list-right right"></span>
-	                     </a>
-	                 </li>
-	             </ul>
+	            <div class="left"></div>
+	            <div class="mid">
+	                <ul>
+	                {pyro:navigation:links group="header"}
+	                    <li class="menu-item">
+	                        <a href="{url}" class="{class}">
+	                            <span class="list-left left"></span>
+	                            <span class="list-mid mid">{title}</span>
+	                            <span class="list-right right"></span>
+	                        </a>
+	                    </li>
+	                {/pyro:navigation:links}
+	                </ul>
+	            </div>
+	            <div class="right"></div>
             </div>
             <div id="content">
                 <div class="left">
