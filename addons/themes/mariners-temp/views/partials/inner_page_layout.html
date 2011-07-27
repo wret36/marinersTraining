@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>New Template</title>
+    {pyro:theme:css file="style.css"}       
+</head>
+<body>
+    <div id="main">
+        <div id="left">
+            <div id="logo">
+                {pyro:theme:image file="logo.png" alt="Fun!"}
+            </div>
+        </div>
+        <div id="right">
+            <div id="menu">
+                <div class="left"></div>
+                <div class="mid">
+                    <ul>
+                    {pyro:navigation:links group="header"}
+                        <li class="menu-item">
+                            <a href="{url}" class="{class}">
+                                <span class="list-left left"></span>
+                                <span class="list-mid mid">{title}</span>
+                                <span class="list-right right"></span>
+                            </a>
+                        </li>
+                    {/pyro:navigation:links}
+                    </ul>
+                </div>
+                <div class="right"></div>
+            </div>
+            <div id="content">
+                {pyro:template:body}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
