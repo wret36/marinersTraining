@@ -4,6 +4,26 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>New Template</title>
 	{pyro:theme:css file="style.css"}		
+	{pyro:theme:js file="jquery-1.6.1.min.js"}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var speed = 400;
+			
+			$('.links').mouseenter(function() {
+				$(this).animate({
+					marginTop: "-10"
+				}, speed, function() {
+				});
+			});
+			
+			$('.links').mouseout(function() {
+				$(this).animate({
+					marginTop: "+10"
+				}, speed, function() {
+				});
+			});
+		});
+	</script>		
 </head>
 <body>
     <div id="main">

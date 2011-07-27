@@ -3,6 +3,8 @@ body {
     background: url("../img/content-bg.png") repeat-x scroll -2px 104px transparent;
     margin: 0;
     padding: 0;	
+    font-family: arial;
+    font-size: 12px;
 }
 
 #main {
@@ -128,17 +130,14 @@ body {
 #links-container {
     float: left;
     margin-top: -45px;
-    width: 1045px;
+    width: 1050px;
 }
 
 #links-container .links {
     float: left;
     height: 209px;
+    position: relative;
     width: 210px;
-}
-
-#links-container .links:hover {
-    margin-top: -10px;
 }
 
 #links-container .links .content {
@@ -182,9 +181,12 @@ body {
     background: url("../img/modules/default-green.png") no-repeat scroll 0 0 transparent;
 }
 
+#links-container .announcement {
+    width: 214px;
+}
+
 #links-container .announcement:hover {
     background: url("../img/modules/announcement.png") no-repeat scroll 0 0 transparent;
-    width: 214px;
 }
 
 #links-container .course-offered:hover {
