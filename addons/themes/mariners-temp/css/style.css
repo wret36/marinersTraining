@@ -187,9 +187,8 @@ body {
 	background: url("../img/modules/certificate-hover.png") no-repeat;
 }
 
-#links-container .certificate a {
-    display: block;
-    text-indent: -20000px;
+#links-container a {
+
 }
 
 #links-container .gallery {
@@ -207,6 +206,18 @@ body {
     margin-top: 65px;
     text-align: center;
     width: 148px;
+}
+
+#links-container .links #find-us {
+	background-image: url("../img/modules/gallery-hover.png");
+	background-color: red;
+    height: 165px;
+    margin-left: 22px;
+    margin-top: 20px
+}
+
+#links-container .links #find-us:hover {
+    background: none;
 }
 
 #links-container .links a.content {
