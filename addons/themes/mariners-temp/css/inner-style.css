@@ -1,1 +1,193 @@
-@CHARSET "UTF-8";
+/*	GLOBAL	*/
+body {
+    background: url("../img/background.png") repeat-x scroll 0 0 transparent;
+    font-family: arial;
+    font-size: 14px;
+    margin: 0;
+    min-width: 1024px;
+    padding: 0;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5 { margin: 0;}
+
+#main {
+    background: url("../img/left-model-inner.png") no-repeat scroll 0 40px transparent;
+    min-height: 500px;
+    min-width: 1024px;
+}
+
+#header {
+    height: 130px;
+    padding-top: 20px;
+}
+
+#logo {
+    float: left;
+    margin-left: 50px;
+}
+
+#content {
+	clear: both;
+}
+/*	LATEST NEWS	*/
+#latest-news a {
+	color: #F4FF81;
+	text-decoration: none;
+}
+
+#latest-news {
+    background: url("../img/latest-news.png") repeat-x scroll 0 0 transparent;
+    height: 120px;
+    margin-left: 200px;
+    padding: 0 15px;
+    width: 100%;
+}
+
+#latest-news h3 {
+	display: none;
+}
+
+#latest-news .latest-news {
+	padding-left: 10px;
+}
+
+.news-container {
+    background: url("../img/news-item-bg.png") repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    float: left;
+    font-size: 11px;
+    height: 78px;
+    margin-right: 10px;
+    margin-top: 26px;
+    padding: 5px;
+    width: 250px;
+}
+
+.news-container:last-child {
+    margin-right: 0;
+}
+/*	END LATEST NEWS*/
+
+#left {
+	float: left;
+	width: 200px;	
+}
+
+#right {
+    background-color: #FFFFFF;
+    float: none;
+    margin-left: 200px;
+    min-height: 400px;
+    padding: 15px;
+    width: 100%;
+}
+
+#content-holder {
+	width: 796px;
+}
+
+/*	END GLOBAL	*/
+/*  MENU  */
+#menu {
+    float: left;
+    height: 66px;
+    position: relative;
+    top: 47px;
+    width: 630px;
+    z-index: 30;
+}
+
+#menu .left,
+#menu .right {
+    float: left;
+    height: 51px;
+    width: 19px;
+}
+
+#menu .left {
+    background: url("../img/menu-left.png") no-repeat scroll 0 0 transparent;
+}
+
+#menu .mid {
+    background: url("../img/menu-mid.png") repeat-x scroll 0 0 transparent;
+    float: left;
+    padding-bottom: 20px;
+    padding-top: 18px;
+}
+
+#menu .mid ul {
+    margin: 0;
+    padding: 0;
+}
+
+#menu .right {
+    background: url("../img/menu-right.png") no-repeat;
+}
+
+#menu li {
+    float: left;
+    list-style: none outside none;
+    padding: 5px;
+}
+
+#menu li a {
+    color: #333333;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    color: #FFFFFF;
+    display: block;
+    margin-top: -10px;
+}
+
+#menu li a .list-left,
+#menu li a .list-mid,
+#menu li a .list-right {
+    background: none repeat scroll 0 0 transparent;
+    padding-top: 0;
+}
+
+#menu li a:hover .list-left {
+    background: url("../img/active-menu-left.png") no-repeat scroll 0 0 transparent;
+    width: 7px;
+}
+
+#menu li a:hover .list-mid {
+    background: url("../img/active-menu-mid.png") repeat-x scroll 0 0 transparent;
+    padding: 10px 6px 18px;
+}
+
+#menu li a:hover .list-right {
+    background: url("../img/active-menu-right.png") no-repeat;
+}
+/*  END MENU  */
+
+/*	LEFT	*/
+#left a {
+    color: #FFFFFF;
+    display: block;
+    font-family: arial;
+    font-size: 31px;
+    height: 206px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    width: 204px;
+}
+
+#left .verify {
+    background: url("../img/check-cert-inner.png") no-repeat 4px 0;
+}
+
+#left .gallery {
+	background: url("../img/gallery-inner.png") no-repeat 4px 0;
+	padding-top: 73px;
+}
+
+#left .gallery span {
+	margin-left: 21px;
+}
+/*	END LEFT	*/
