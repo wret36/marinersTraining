@@ -32,6 +32,7 @@ body {
 
 #content {
     clear: both;
+    font-size: 15px;
     min-height: 300px;
     padding: 23px 4px 10px;
 }
@@ -43,6 +44,21 @@ body {
     width: 614px;
 }
 
+.seperator-holder {
+    background: url("../img/separator.png") repeat-y scroll 293px 0 transparent;
+    height: 300px;
+}
+
+#content-holder h2,
+#content-holder h3 {
+	color: #F4FF81
+}
+
+#content-holder a {
+	color: #F9F9F9;
+	text-decoration: none;
+}
+
 #content .left,
 #content .right {
     float: left;
@@ -52,7 +68,8 @@ body {
 }
 
 #content .right {
-    margin-left: 10px;	
+    margin-left: 10px;
+    width: 299px;
 }
 /*  END GLOBAL */
 /*  MENU  */
