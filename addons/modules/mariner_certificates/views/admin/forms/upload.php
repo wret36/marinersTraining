@@ -4,6 +4,21 @@
 </head>
 <body>
 
+
+<h1>Upload Mariners Data</h1>
+<h4>File format</h4>
+<ul>
+<li>.csv (Comma Separated Values)</li>
+<li>.xls Excel Files</li>
+<li>.ods (OpenOffice.org and StarOffice)</li>
+</ul>
+<h4>Sample Convention</h4>
+
+<div id="sample-data"></div>
+<h4>File Size</h4>
+<ul>
+<li>Maximum of 4 Megabytes</li>
+</ul>
 <?php if(isset($hasErrors)) {
     print $errorMessages;
 }?>

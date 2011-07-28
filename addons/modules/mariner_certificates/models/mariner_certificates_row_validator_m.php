@@ -12,7 +12,7 @@ class Mariner_Certificates_Row_Validator_m extends MY_Model
     
     const ROW_HEADER                = 1;
     
-    protected $_errorMsgs = "Encountered the following errors : <br><br><ul>";
+    protected $_errorMsgs = "<h4>Encountered the following errors : </h4><br><br><ul>";
     protected $_errorCount;
     protected $_rowNum;
     protected $_rowValues;

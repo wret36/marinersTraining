@@ -225,6 +225,7 @@ class Admin extends Admin_Controller
         $this->template
             ->title('Mariner Certificates')
             ->set('mariner_certificates')
+        	->append_metadata(css('style.css', 'mariner_certificates'))
             ->build('admin/forms/upload', $data);
     }
     
