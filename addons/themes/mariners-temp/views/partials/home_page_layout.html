@@ -4,7 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    	<title>{pyro:settings:site_name}&nbsp;&bull;&nbsp;{pyro:template:title}</title>
     {pyro:theme:css file="style.css"}       
-    {pyro:theme:js file="jquery-1.6.1.min.js"}
+    {pyro:theme:js file="jquery-1.6.1.min.js"}       
+    {pyro:theme:js file="jquery.infinitecarousel.js"}
     <script type="text/javascript">
         $(document).ready(function() {
             var speed = 400;
@@ -22,6 +23,13 @@
                 }, speed, function() {
                 });
             });
+
+        	$('#carousel').infiniteCarousel({
+        		displayTime: 6000,
+        		textholderHeight : .25
+        	});
+
+            
         });
     </script>       
 </head>
@@ -31,10 +39,12 @@
             <div id="logo">
                 {pyro:theme:image file="logo.png" alt="Fun!"}
             </div>
+			{pyro:theme:partial name="slide-banner"}                	
         </div>
         <div id="right">
             <div id="menu">
-                <div class="left"></div>
+                <div class="left">
+                </div>
                 <div class="mid">
                     <ul>
                     {pyro:navigation:links group="header"}
