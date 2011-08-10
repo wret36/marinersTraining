@@ -21,7 +21,7 @@ body {
 }
 
 #left {
-    background: url("../img/left-model.png") no-repeat scroll 0 0 transparent;
+    /*background: url("../img/left-model.png") no-repeat scroll 0 0 transparent;*/
     height: 402px;
     width: 404px;
 }
