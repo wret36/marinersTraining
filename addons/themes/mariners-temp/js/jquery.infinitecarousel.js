@@ -49,7 +49,7 @@
 				}
 			
 				// Move last image and stick it on the front
-				$(obj).css({'overflow':'hidden','position':'relative','margin-top':'-95px'});
+				$(obj).css({'overflow':'hidden','position':'relative'});
 				$('li:last', obj).prependTo($('ul', obj));
 				$('ul', obj).css('left',-imgWidth+'px');
 				$('ul',obj).width(9999);

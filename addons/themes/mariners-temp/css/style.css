@@ -26,6 +26,22 @@ body {
     width: 404px;
 }
 
+#logo,
+#carousel {
+	float: left;
+}
+
+#carousel {
+	background: pink;
+	margin-top: -6px;
+	z-index: -1000;
+}
+
+#carousel li img {
+	height: 290px;
+	width: 408px
+}
+
 #right {
 	width: 620px;	
 }
