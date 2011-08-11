@@ -32,9 +32,17 @@ body {
 }
 
 #carousel {
-	background: pink;
+	background: url("../img/load-background.png") repeat;
 	margin-top: -6px;
 	z-index: -1000;
+}
+
+#carousel div,
+#btn_lt77744846 {
+	display: none !important;
+}
+
+#carousel li {
 }
 
 #carousel li img {
@@ -169,6 +177,10 @@ body {
     float: left;
     margin-top: -45px;
     width: 1050px;
+}
+
+#links-container a {
+	text-decoration: none;
 }
 
 #links-container .links {
