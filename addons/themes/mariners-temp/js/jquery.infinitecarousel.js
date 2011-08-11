@@ -70,7 +70,7 @@
 				$(obj).append(html);
 			
 				// Pause/play button(img)	
-				html = '<a href="javascript:void(0);"><img id="pause_btn'+randID+'" src="http://127.0.0.1/allserve/js/infiniteCarousel/images/pause.png" style="position:absolute;top:3px;right:3px;border:none" alt="" /></a>';
+				html = '<a href="javascript:void(0);"><!--<img id="pause_btn'+randID+'" src="http://127.0.0.1/allserve/js/infiniteCarousel/images/pause.png" style="position:absolute;top:3px;right:3px;border:none;display:none;" alt="" />--></a>';
 				html += '<a href="javascript:void(0);"><img id="play_btn'+randID+'" src="http://127.0.0.1/allserve/js/infiniteCarousel/images/play.png" style="position:absolute;top:3px;right:3px;border:none;display:none;" alt="" /></a>';
 				$(obj).append(html);
 				$('#pause_btn'+randID).css('opacity','.5').hover(function(){$(this).animate({opacity:'1'},250)},function(){$(this).animate({opacity:'.5'},250)});
