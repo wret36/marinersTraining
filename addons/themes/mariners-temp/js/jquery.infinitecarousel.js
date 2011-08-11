@@ -49,7 +49,7 @@
 				}
 			
 				// Move last image and stick it on the front
-				$(obj).css({'overflow':'hidden','position':'relative'});
+				$(obj).css({'overflow':'hidden','position':'relative','margin-top':'-95px'});
 				$('li:last', obj).prependTo($('ul', obj));
 				$('ul', obj).css('left',-imgWidth+'px');
 				$('ul',obj).width(9999);
@@ -70,8 +70,8 @@
 				$(obj).append(html);
 			
 				// Pause/play button(img)	
-				html = '<a href="javascript:void(0);"><img id="pause_btn'+randID+'" src="http://127.0.0.1/allserve/js/infiniteCarousel/images/pause.png" style="position:absolute;top:3px;right:3px;border:none" alt="Pause" /></a>';
-				html += '<a href="javascript:void(0);"><img id="play_btn'+randID+'" src="http://127.0.0.1/allserve/js/infiniteCarousel/images/play.png" style="position:absolute;top:3px;right:3px;border:none;display:none;" alt="Play" /></a>';
+				html = '<a href="javascript:void(0);"><img id="pause_btn'+randID+'" src="http://127.0.0.1/allserve/js/infiniteCarousel/images/pause.png" style="position:absolute;top:3px;right:3px;border:none" alt="" /></a>';
+				html += '<a href="javascript:void(0);"><img id="play_btn'+randID+'" src="http://127.0.0.1/allserve/js/infiniteCarousel/images/play.png" style="position:absolute;top:3px;right:3px;border:none;display:none;" alt="" /></a>';
 				$(obj).append(html);
 				$('#pause_btn'+randID).css('opacity','.5').hover(function(){$(this).animate({opacity:'1'},250)},function(){$(this).animate({opacity:'.5'},250)});
 				$('#pause_btn'+randID).click(function(){
@@ -114,9 +114,9 @@
 					$('#thumbs'+randID).width(imgWidth);
 					for(i=0;i<=numImages-1;i++)
 					{
-						thumb = $('img:eq('+(i+1)+')', obj).attr('src');
-						$('#thumbs'+randID).append('<div class="thumb" id="thumb'+randID+'_'+(i+1)+'" style="cursor:pointer;background-image:url('+thumb+');display:inline;float:left;width:'+o.thumbnailWidth+';height:'+o.thumbnailHeight+';line-height:'+o.thumbnailHeight+';padding:0;overflow:hidden;text-align:center;border:2px solid #ccc;margin-right:4px;font-size:'+o.thumbnailFontSize+';font-family:Arial;color:#000;text-shadow:0 0 3px #fff">'+(i+1)+'</div>');
-						if(i==0) $('#thumb'+randID+'_1').css({'border-color':'#ff0000'});
+						//thumb = $('img:eq('+(i+1)+')', obj).attr('src');
+						//$('#thumbs'+randID).append('<div class="thumb" id="thumb'+randID+'_'+(i+1)+'" style="cursor:pointer;background-image:url('+thumb+');display:inline;float:left;width:'+o.thumbnailWidth+';height:'+o.thumbnailHeight+';line-height:'+o.thumbnailHeight+';padding:0;overflow:hidden;text-align:center;border:2px solid #ccc;margin-right:4px;font-size:'+o.thumbnailFontSize+';font-family:Arial;color:#000;text-shadow:0 0 3px #fff">'+(i+1)+'</div>');
+						//if(i==0) $('#thumb'+randID+'_1').css({'border-color':'#ff0000'});
 					}
 					// Next two lines are a special case to handle the first list element which was originally the last
 					thumb = $('img:first', obj).attr('src');
