@@ -1,5 +1,5 @@
 <?php if (!isset($certificate) || count($certificate) == 0) :?>
-    <h4>Not result found.</h4>
+    <h4>No results found.</h4>
 <?php else: ?>
     <h4>This person is certified!</h4>
     <div>Firstname : <?= ($certificate->first_name ? $certificate->first_name : 'N/A') ?></div>
