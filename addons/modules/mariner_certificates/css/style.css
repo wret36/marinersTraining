@@ -1,5 +1,6 @@
 #sample-data {
 	background: url("images/sample_data.png") no-repeat scroll 0 0 transparent;
-    	height: 272px;
-    	width: 719px;
+    border: 4px solid;
+    height: 220px;
+    width: 678px;
 }
