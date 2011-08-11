@@ -1,9 +1,11 @@
+
+
 <div id="verify_form_container" style="float: left; padding-bottom: 40px;">
 <?php
 $attributes = array('id' => 'certificate-verification');
 echo form_open('/mariner_certificates/verify', $attributes);?>
 <div>
-	<?php echo form_label('Certificate No. :'); ?>
+	<?php echo form_label('Enter Certificate Number'); ?>
 	<?php 
 		$data = array(
               'name'        => 'certificate_id',
@@ -18,8 +20,8 @@ echo form_open('/mariner_certificates/verify', $attributes);?>
 	<?php 
 		$data = array(
               'name'        => 'verify',
-              'id'          => 'verify',
-              'value'       => 'Verify',
+              'id'          => 'verify-button',
+              'value'       => '',
               'class'  		=> 'form-button required'
             );
 		?>

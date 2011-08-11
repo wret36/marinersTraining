@@ -191,3 +191,39 @@ h1, h2, h3, h4, h5 { margin: 0;}
 	margin-left: 21px;
 }
 /*	END LEFT	*/
+
+
+/*  VERIFICATION FORM */
+
+#verify_form_container {
+	background: url("../img/news-item-bg.png") repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+     padding-top: 30px;
+    text-align: center;
+    width: 700px
+}
+
+#certificate-verification label {
+	font-size: 30px;
+	
+}
+
+#certificate-verification input[type=text] {
+	border: 1px solid #CCCCCC;
+    color: #516064;
+    font-family: Helvetica,arial,sans-serif;
+    font-size: 22px;
+    margin-bottom: 20px;
+    padding: 8px;
+    text-align: center;
+    width: 400px;
+
+}
+
+#certificate-verification #verify-button {
+	background: url("../img/buttons/verify-button.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    height: 58px;
+    width: 227px;
+    cursor: pointer;
+}
