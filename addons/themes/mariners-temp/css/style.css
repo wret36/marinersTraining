@@ -167,7 +167,7 @@ body {
     text-decoration: none;
 }
 
-#menu li a:hover {
+#menu li:hover a {
     color: #FFFFFF;
     display: block;
     margin-top: -10px;
@@ -180,17 +180,17 @@ body {
     padding-top: 0;
 }
 
-#menu li a:hover .list-left {
+#menu li:hover a .list-left {
     background: url("../img/active-menu-left.png") no-repeat scroll 0 0 transparent;
     width: 7px;
 }
 
-#menu li a:hover .list-mid {
+#menu li:hover a .list-mid {
     background: url("../img/active-menu-mid.png") repeat-x scroll 0 0 transparent;
     padding: 10px 6px 18px;
 }
 
-#menu li a:hover .list-right {
+#menu li:hover a .list-right {
     background: url("../img/active-menu-right.png") no-repeat;
 }
 /*  END MENU  */
