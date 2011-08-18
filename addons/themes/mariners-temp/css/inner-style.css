@@ -54,6 +54,7 @@ form #other_subject {
 form input[type=submit] {
     float: none;
     margin: 0 auto;
+    width: 
 }
 #main {
     background: url("../img/left-model-inner.png") no-repeat scroll 0 40px transparent;
@@ -275,4 +276,12 @@ form input[type=submit] {
     height: 58px;
     width: 227px;
     cursor: pointer;
+}
+
+#comments_form_container textarea {
+	width: 600px;
+}
+
+#comments_form_container input[type=submit] {
+	width: 200px;
 }
