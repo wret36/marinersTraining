@@ -286,6 +286,7 @@ body {
 }
 
 #links-container .announcement {
+	background: url("../img/modules/announcement.png") no-repeat scroll 0 0 transparent;
     width: 214px;
 }
 
@@ -293,8 +294,17 @@ body {
     background: url("../img/modules/announcement-hover.png") no-repeat scroll 0 0 transparent;
 }
 
+#links-container .course-offered {
+    background: url("../img/modules/course-offered.png") no-repeat scroll 0 0 transparent;
+}
+
 #links-container .course-offered:hover {
     background: url("../img/modules/course-offered-hover.png") no-repeat scroll 0 0 transparent;
+}
+
+#links-container .find-us {
+    background: url("../img/modules/find-us.png") no-repeat scroll 0 0 transparent;
+    width: 215px;
 }
 
 #links-container .find-us:hover {
