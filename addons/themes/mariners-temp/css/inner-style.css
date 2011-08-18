@@ -11,6 +11,46 @@ body {
 
 h1, h2, h3, h4, h5 { margin: 0;}
 
+form p {
+    display: block;
+    float: left;
+    margin-bottom: 5px;
+}
+
+#content-holder form {
+	width: 796px;
+}
+
+form label,
+form input {
+	float: left;
+}
+
+form label {
+	width: 200px;
+}
+
+form input {
+	margin-left: 20px;
+	width: 400px;
+}
+
+form select {
+	border: 1px solid #ADA9A5;
+	background: none;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	width: 405px;
+}
+
+form #other_subject {
+	    margin-left: 220px;
+}
+
+form input[type=submit] {
+    float: none;
+    margin: 0 auto;
+}
 #main {
     background: url("../img/left-model-inner.png") no-repeat scroll 0 40px transparent;
     min-height: 500px;
@@ -84,7 +124,12 @@ h1, h2, h3, h4, h5 { margin: 0;}
 }
 
 #content-holder {
-	width: 796px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    margin-left: -15px;
+    min-height: 300px;
+    padding-left: 15px;
+    width: 100%;
 }
 
 /*	END GLOBAL	*/
