@@ -88,7 +88,8 @@ body {
 }
 
 #content-holder h3 {
-	margin-bottom: 23px;
+    margin-bottom: 18px;
+    margin-top: 24px;
 }
 
 #content-holder a {
