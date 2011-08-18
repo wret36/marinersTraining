@@ -1,6 +1,24 @@
 
+<style>
+#optional_verify_container {
+    margin-top: 40px;
+    width: 700px;
+}
 
+#not-certified,#certified {
+	text-align: center;
+}
+
+.certified-info {
+	font-size: 15px;
+}
+#certified-info-container {
+	margin: 15px auto auto;
+    width: 238px;
+}
+</style>
 <div id="verify_form_container" style="float: left; padding-bottom: 40px;">
+
 <?php
 $attributes = array('id' => 'certificate-verification');
 echo form_open('/mariner_certificates/verify', $attributes);?>
