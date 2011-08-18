@@ -87,9 +87,21 @@ body {
 	color: #F4FF81
 }
 
+#content-holder h3 {
+	margin-bottom: 23px;
+}
+
 #content-holder a {
 	color: #F9F9F9;
 	text-decoration: none;
+}
+
+#content-holder .read-on a {
+    background: none repeat scroll 0 0 #28561B;
+    color: #F4FF81;
+    padding: 6px;
+    position: relative;
+    top: 50px;
 }
 
 #content .left,
