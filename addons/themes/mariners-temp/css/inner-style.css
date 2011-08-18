@@ -21,6 +21,22 @@ form p {
     margin-bottom: 5px;
 }
 
+.form_buttons {
+    text-align: right;
+    width: 625px;
+}
+
+.form_buttons input[type="submit"] {
+    padding-bottom: 3px;
+    padding-top: 3px;
+    width: 120px;
+}
+
+form p textarea {
+	width: 400px;
+    margin-left: 20px;
+}
+
 #content-holder form {
 	width: 796px;
 }

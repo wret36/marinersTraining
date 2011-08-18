@@ -36,15 +36,18 @@ class Pages extends Public_Controller
 			redirect('');
 		}
 		
-		$this->template
-		->append_metadata(css('jquery/jquery-ui.css'))
-		->append_metadata(css('jquery/colorbox.css'))
-		->append_metadata(css('galleries.css', 'galleries'))
-		->append_metadata(js('jquery/jquery-ui-1.8.4.min.js'))
-		->append_metadata(js('jquery/jquery.colorbox.min.js'))
-		->append_metadata(js('jquery/jquery.livequery.js'))
-		->append_metadata(js('jquery/jquery.uniform.min.js'))
-		->append_metadata(js('admin/functions.js'));
+		if ($this->uri->segment(1) == 'facilities') {
+			$this->template
+			->append_metadata(css('jquery/jquery-ui.css'))
+			->append_metadata(css('jquery/colorbox.css'))
+			->append_metadata(css('galleries.css', 'galleries'))
+			->append_metadata(js('jquery/jquery-ui-1.8.4.min.js'))
+			->append_metadata(js('jquery/jquery.colorbox.min.js'))
+			->append_metadata(js('jquery/jquery.livequery.js'))
+			->append_metadata(js('jquery/jquery.uniform.min.js'))
+			->append_metadata(js('admin/functions.js'));
+		}
+		
     }
     
 
