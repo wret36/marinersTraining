@@ -93,17 +93,16 @@ body {
 }
 
 #content-holder a {
-	color: #F9F9F9;
+	color: #F4FF81;
 	text-decoration: none;
 }
 
 #content-holder .read-on a {
     background: none repeat scroll 0 0 #28561B;
     color: #F4FF81;
-    padding: 6px;
+    padding: 3px;
     position: relative;
-    top: 50px;
-}
+    top: 4px;}
 
 #content .left,
 #content .right {
@@ -301,4 +300,9 @@ body {
 #links-container .find-us:hover {
     background: url("../img/modules/find-us-hover.png") no-repeat scroll 0 0 transparent;
     width: 215px;
+}
+
+.news-container p {
+	margin-top: 5px;
+	margin-bottom: 10px;
 }
