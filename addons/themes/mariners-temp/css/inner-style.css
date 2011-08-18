@@ -285,3 +285,11 @@ form input[type=submit] {
 #comments_form_container input[type=submit] {
 	width: 200px;
 }
+
+#comments_container {
+	display: none;
+}
+
+#comments_form_container {
+	display: none;
+}
