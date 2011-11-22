@@ -23,11 +23,11 @@
 $attributes = array('id' => 'certificate-verification');
 echo form_open('/mariner_certificates/verify', $attributes);?>
 <div>
-	<?php echo form_label('Enter Certificate Number'); ?>
+	<?php echo form_label('Search Key'); ?>
 	<?php 
 		$data = array(
-              'name'        => 'certificate_id',
-              'id'          => 'certificate_id',
+              'name'        => 'search_key',
+              'id'          => 'search_key',
 //              'value'       =>  get_propery_from_object($certRecord, 'certificate_id'),
               'class'  		=> 'textfield'
             );

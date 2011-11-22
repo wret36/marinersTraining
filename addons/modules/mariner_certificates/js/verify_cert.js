@@ -7,8 +7,8 @@ $(document).ready(function() {
 
 function verifyCertificate()
 {
-	var certID = $('input[name=certificate_id]').val();
-	var postData = {'verify' : 'Verify', 'certificate_id' : certID };
+	var searchKey = $('input[name=search_key]').val();
+	var postData = {'verify' : 'Verify', 'search_key' : searchKey };
 	
 	$.ajax({
 		  type: 'POST',

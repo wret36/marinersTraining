@@ -38,6 +38,23 @@ class Mariner_Certificates_m extends MY_Model
         $query = $this->db->get();
         return $query->result();
     }
+    
+    public function getForVerification($params)
+    {
+        $this->db->select('id, certificate_id, first_name, last_name, middle_name, suffix, date_certified, created_at, updated_at');
+        $this->db->from('mariner_certificates');
+        $this->db->where('id IS NOT NULL');
+    
+        if (array_key_exists('search_key', $params)) {
+            $this->db->like('certificate_id', $params['search_key']);
+            $this->db->or_like('first_name', $params['search_key']);
+            $this->db->or_like('last_name', $params['search_key']);
+            $this->db->or_like('middle_name', $params['search_key']);
+        }
+    
+        $query = $this->db->get();
+        return $query->result();
+    }
 	
 	/** 
 	 * TODO: temporary only, deprecate this if getBy is available

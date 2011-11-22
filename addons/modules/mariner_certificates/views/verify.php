@@ -1,13 +1,53 @@
- 
-<?php if (!isset($certificate) || count($certificate) == 0) :?>
-    <h3 id="not-certified" >Certificate Number, Not Found.Please try again</h3>
+
+<?php if (!isset($certificates) || count($certificates) == 0) :?>
+<h3 id="not-certified">Certificate, Not Found.Please try again</h3>
+
 <?php else: ?>
-    <h3 id="certified">Certificate Number is certified!</h3>
-    <div id="certified-info-container">
-        <div class="certified-info">Firstname : <?= ($certificate->first_name ? $certificate->first_name : 'N/A') ?></div>
-        <div class="certified-info">Lastname : <?= ($certificate->last_name ? $certificate->last_name : 'N/A')  ?></div>
-        <div class="certified-info">Middlename : <?= ($certificate->middle_name ? $certificate->middle_name : 'N/A') ?></div>
-        <?= ($certificate->suffix ? '<div class="certified-info">Suffix : '. $certificate->suffix .'</div>': '') ?>
-        <div class="certified-info">Date Certified : <?= ($certificate->date_certified ? $certificate->date_certified : 'N/A') ?></div>
-    </div>
+<h3 id="certified">Results</h3>
+<table id="certificates" class="styled-table">
+	<thead>
+		<tr>
+			<th class="left">Lastname</th>
+			<th>Firstname</th>
+			<th>Middlename</th>
+			<th class="right">Date Certified</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($certificates as $certificate): ?>
+		<tr align="center">
+			<td><?= $certificate->last_name ?>
+			</td>
+			<td><?= $certificate->first_name ?>
+			</td>
+			<td><?= $certificate->middle_name ?>
+			</td>
+			<td><?= $certificate->date_certified ?>
+			</td>
+		</tr>
+		
+    <?php endforeach; ?>
+    </tbody>
+	<tfoot>
+		<tr>
+			<td class="left"></td>
+			<td></td>
+			<td class="right"></td>
+		</tr>
+	</tfoot>
+</table>
+<div align="center"
+	id="pageNavPosition"></div>
+</div>
+<script type="text/javascript">
+    var pager;
+    
+    jQuery(document).ready(function() {
+        pager = new Pager('certificates', 10); 
+        pager.init(); 
+        pager.showPageNav('pager', 'pageNavPosition'); 
+        pager.showPage(1);
+    });
+</script>
+
 <?php endif;?>

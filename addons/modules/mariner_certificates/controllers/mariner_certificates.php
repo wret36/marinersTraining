@@ -31,6 +31,7 @@ class Mariner_Certificates extends Public_Controller
             ->set('mariner_certificates')
         	->append_metadata(js('jquery-1.5.2.min.js', 'mariner_certificates'))
         	->append_metadata(js('verify_cert.js', 'mariner_certificates'))
+            ->append_metadata(js('paging.js', 'mariner_certificates'))
             ->build('mariner_certificates/mariner_certificates/forms/certificate_verification');
         
     }
@@ -42,14 +43,16 @@ class Mariner_Certificates extends Public_Controller
     	
     	// validate certificate here
 		if (isset($_POST['verify'])) {
-			$certID = $_POST['certificate_id'];
-			$data = $this->_getCertificateData($certID);
+			$searchKey = $_POST['search_key'];
+			$data = $this->_getCertificateData($searchKey);
 		} else {
 			$this->session->set_flashdata('error', 'Invalid arguments passed on verification params.');
 			redirect(base_url().'mariner_certificates');
 		}
 		
     	if ($isAjax == true) {
+    	    
+    	    
     		$ajaxData = null;
     		// check if really an ajax request
     		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -67,17 +70,15 @@ class Mariner_Certificates extends Public_Controller
     	
     }
     
-    private function _getCertificateData($certID)
+    private function _getCertificateData($searchKey)
     {
     	// default data
     	$data = null;
-    	$params = array('certificate_id' => $certID);
-    	$certificates = $this->marinerCert->getBy($params);
-    	
+    	$params = array('search_key' => $searchKey);
+    	$certificates = $this->marinerCert->getForVerification($params);
     	if (count($certificates) > 0) {
-    		$certificate = $certificates[0];
     		$data = array(
-				'certificate' => $certificate
+				'certificates' => $certificates
     		);
     	}
     	return $data;
