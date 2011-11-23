@@ -1,12 +1,7 @@
-
 <style>
 #optional_verify_container {
     margin-top: 40px;
     width: 700px;
-}
-
-#not-certified,#certified {
-	text-align: center;
 }
 
 .certified-info {

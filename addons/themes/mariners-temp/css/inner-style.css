@@ -290,10 +290,10 @@ form input[type=submit] {
 
 #certificate-verification #verify-button {
     background: url("../img/buttons/verify-button.png") no-repeat scroll 0 0 transparent;
-    border: 0 none;
+    border: none;
     cursor: pointer;
     float: none;
-    height: 58px;
+    height: 43px;
     left: -57px;
     margin: 0;
     position: relative;
@@ -327,4 +327,25 @@ form input[type=submit] {
     border: 1px solid;
     color: #FFFFFF;
     padding: 10px 0;
+}
+
+#pageNavPosition {
+	padding: 10px 0;
+}
+
+#pageNavPosition span {
+	cursor: pointer;
+}
+
+#pageNavPosition .pg-selected {
+    background: none repeat scroll 0 0 #333333;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 3px;
+}
+
+#not-certified, #certified {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
 }

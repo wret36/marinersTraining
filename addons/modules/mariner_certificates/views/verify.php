@@ -1,9 +1,9 @@
 
 <?php if (!isset($certificates) || count($certificates) == 0) :?>
-<h3 id="not-certified">Certificate, Not Found.Please try again</h3>
+<h3 id="not-certified">No Results Found</h3>
 
 <?php else: ?>
-<h3 id="certified">Results</h3>
+<h3 id="certified">Certified Mariners Search Result</h3>
 <table id="certificates" class="styled-table">
 	<thead>
 		<tr>
