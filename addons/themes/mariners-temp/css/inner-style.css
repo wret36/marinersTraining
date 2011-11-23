@@ -289,13 +289,15 @@ form input[type=submit] {
 }
 
 #certificate-verification #verify-button {
-	background: url("../img/buttons/verify-button.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/buttons/verify-button.png") no-repeat scroll 0 0 transparent;
     border: 0 none;
     cursor: pointer;
-    float: left;
+    float: none;
     height: 58px;
-    margin-left: 20px;
-    width: 227px;
+    left: -57px;
+    margin: 0;
+    position: relative;
+    width: 173px;
 }
 
 #comments_form_container textarea {
@@ -312,4 +314,17 @@ form input[type=submit] {
 
 #comments_form_container {
 	display: none;
+}
+
+#certificates {
+    border: 1px solid;
+    padding: 10px 0;
+    width: 700px;
+}
+
+#certificates thead th {
+    background: none repeat scroll 0 0 #333333;
+    border: 1px solid;
+    color: #FFFFFF;
+    padding: 10px 0;
 }
