@@ -73,7 +73,7 @@ form input[type=submit] {
     width: 
 }
 #main {
-    background: url("../img/left-model-inner.png") no-repeat scroll 0 40px transparent;
+    /*background: url("../img/left-model-inner.png") no-repeat scroll 0 40px transparent;*/
     min-height: 500px;
     min-width: 1024px;
 }
@@ -90,7 +90,6 @@ form input[type=submit] {
 
 #content {
 	clear: both;
-	overflow-x: hidden;
 }
 /*	LATEST NEWS	*/
 #latest-news a {
@@ -103,7 +102,6 @@ form input[type=submit] {
     height: 120px;
     margin-left: 200px;
     padding: 0 15px;
-    width: 100%;
 }
 
 #latest-news h3 {
@@ -142,7 +140,6 @@ form input[type=submit] {
     margin-left: 200px;
     min-height: 400px;
     padding: 15px;
-    width: 100%;
 }
 
 #content-holder {
@@ -161,7 +158,7 @@ form input[type=submit] {
     height: 66px;
     position: relative;
     top: 47px;
-    width: 630px;
+    width: 625px;
     z-index: 30;
 }
 
@@ -348,4 +345,10 @@ form input[type=submit] {
     font-size: 20px;
     margin-bottom: 15px;
     text-align: center;
+}
+#footer{
+	float: left;
+	padding-top: 40px;
+	text-align: center;
+	width: 100%;
 }
